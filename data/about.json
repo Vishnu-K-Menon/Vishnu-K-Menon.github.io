@@ -2,10 +2,10 @@
   "figure": "NOTES",
   "sectionTitle": "General Notes",
   "notes": [
-    "AI/ML Engineer with 4+ years of experience developing production machine learning and generative AI systems, specializing in AI reliability, LLM evaluation and scalable inference infrastructure.",
-    "At C3 AI I architect a multi-tenant LLM and RAG inference platform for 20+ enterprise deployments, design LangGraph orchestration workflows with automated validation gates, and run evaluation and drift monitoring that catches model regressions 4x faster.",
-    "Before that I tuned semantic ranking and RAG retrieval for enterprise search at Glean, and shipped forecasting, NLP and recommendation models at Accenture.",
-    "I build AI systems you can trust: answers checked claim by claim against their sources, fine-tuned models aligned with preference data, and results backed by evaluations defined before the run."
+    "AI/ML Engineer with 4+ years of experience developing production machine learning and generative AI systems, specializing in AI reliability, LLM evaluation, and scalable inference infrastructure.",
+    "Experienced in architecting multi-agent workflows, hallucination detection systems, self-verifying RAG pipelines, and enterprise model-serving platforms. Supported systems handling 1M+ daily requests with 99.9% uptime.",
+    "Improved inference performance through retrieval optimization, model quantization, and caching: p95 search latency down 40% at Glean, and p95 below 300 ms under 3x traffic across 50M+ documents at C3 AI.",
+    "Focused on building reliable, evaluation-driven AI systems through LLM fine-tuning, retrieval optimization, automated verification, and production monitoring."
   ],
   "specs": [
     {
@@ -27,6 +27,10 @@
     {
       "label": "Degree",
       "value": "M.S. CSE, University at Buffalo"
+    },
+    {
+      "label": "Certified",
+      "value": "AWS ML Engineer – Associate"
     }
   ]
 }

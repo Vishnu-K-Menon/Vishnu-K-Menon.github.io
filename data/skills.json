@@ -1,11 +1,47 @@
 {
   "figure": "FIG. 03",
   "sectionTitle": "Parts Schedule",
-  "note": "68 PARTS ON RECORD — USED IN PRODUCTION AND PROJECT WORK",
+  "note": "79 PARTS ON RECORD — USED IN PRODUCTION AND PROJECT WORK",
   "rows": [
     {
       "ref": "P-01",
-      "category": "Generative & Agentic AI",
+      "category": "Programming & Libraries",
+      "items": [
+        "Python",
+        "PySpark",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "PyTorch",
+        "TensorFlow",
+        "Pydantic",
+        "SQL",
+        "Hugging Face Transformers"
+      ],
+      "qty": "10"
+    },
+    {
+      "ref": "P-02",
+      "category": "Machine Learning & Deep Learning",
+      "items": [
+        "XGBoost",
+        "Random Forest",
+        "Regression",
+        "Classification",
+        "Feature Engineering",
+        "Cross-Validation",
+        "A/B Testing",
+        "BERT",
+        "NLP",
+        "Model Fine-Tuning",
+        "QLoRA",
+        "DPO"
+      ],
+      "qty": "12"
+    },
+    {
+      "ref": "P-03",
+      "category": "Generative AI & Agentic AI",
       "items": [
         "LLMs",
         "LangChain",
@@ -20,7 +56,22 @@
       "qty": "09"
     },
     {
-      "ref": "P-02",
+      "ref": "P-04",
+      "category": "RAG & Vector Search",
+      "items": [
+        "Retrieval-Augmented Generation (RAG)",
+        "OpenSearch",
+        "ChromaDB",
+        "Qdrant",
+        "Semantic Search",
+        "Embeddings",
+        "Retrieval Optimization",
+        "Reranking"
+      ],
+      "qty": "08"
+    },
+    {
+      "ref": "P-05",
       "category": "LLM Evaluation & AI Reliability",
       "items": [
         "Hallucination Detection",
@@ -35,41 +86,19 @@
       "qty": "08"
     },
     {
-      "ref": "P-03",
-      "category": "RAG & Vector Search",
+      "ref": "P-06",
+      "category": "Data Engineering",
       "items": [
-        "Retrieval-Augmented Generation",
-        "OpenSearch",
-        "ChromaDB",
-        "Qdrant",
-        "Semantic Search",
-        "Embeddings",
-        "Retrieval Optimization",
-        "Reranking"
+        "Docling",
+        "Table Extraction",
+        "Apache Airflow",
+        "AWS Glue",
+        "ETL/ELT"
       ],
-      "qty": "08"
+      "qty": "05"
     },
     {
-      "ref": "P-04",
-      "category": "Machine Learning & Deep Learning",
-      "items": [
-        "PyTorch",
-        "TensorFlow",
-        "Hugging Face Transformers",
-        "Scikit-learn",
-        "XGBoost",
-        "Random Forest",
-        "BERT",
-        "NLP",
-        "Fine-Tuning",
-        "QLoRA",
-        "DPO",
-        "A/B Testing"
-      ],
-      "qty": "12"
-    },
-    {
-      "ref": "P-05",
+      "ref": "P-07",
       "category": "MLOps & Deployment",
       "items": [
         "Docker",
@@ -81,51 +110,40 @@
         "CI/CD",
         "GitHub Actions",
         "Model Registry",
+        "Model Monitoring",
+        "Automated Testing",
         "Model Serving",
         "Inference Optimization"
       ],
-      "qty": "11"
+      "qty": "13"
     },
     {
-      "ref": "P-06",
-      "category": "Data Engineering",
-      "items": [
-        "Python",
-        "SQL",
-        "PySpark",
-        "Pandas",
-        "Apache Airflow",
-        "AWS Glue",
-        "Docling",
-        "ETL/ELT"
-      ],
-      "qty": "08"
-    },
-    {
-      "ref": "P-07",
+      "ref": "P-08",
       "category": "Cloud & Databases",
       "items": [
         "AWS (S3, EC2, SageMaker, Lambda, CloudWatch)",
-        "Azure ML",
-        "AKS",
+        "Azure (Azure ML, AKS, Blob Storage)",
         "PostgreSQL",
         "MySQL",
         "MongoDB",
         "Redshift"
       ],
-      "qty": "07"
+      "qty": "06"
     },
     {
-      "ref": "P-08",
-      "category": "Observability",
+      "ref": "P-09",
+      "category": "Observability & Tools",
       "items": [
         "OpenTelemetry",
         "Arize Phoenix",
         "Prometheus",
         "Grafana",
-        "Distributed Tracing"
+        "Distributed Tracing",
+        "Git",
+        "Jira",
+        "Agile/Scrum"
       ],
-      "qty": "05"
+      "qty": "08"
     }
   ]
 }

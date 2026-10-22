@@ -4,36 +4,36 @@
   "revisions": [
     {
       "rev": "A",
-      "date": "2017 - 2021",
-      "description": "B.Tech. Electronics and Communication",
-      "org": "SCMS School of Engineering and Technology, Kerala",
+      "date": "Sep 2017 - Jun 2021",
+      "description": "B.Tech. in Electronics and Communication",
+      "org": "SCMS School of Engineering and Technology, Ernakulam, Kerala",
       "institution": "SCMS School of Engineering and Technology",
       "note": "Degree"
     },
     {
       "rev": "B",
-      "date": "2024 - 2026",
-      "description": "M.S. Computer Science and Engineering",
+      "date": "Aug 2024 - Jan 2026",
+      "description": "M.S. in Computer Science and Engineering",
       "org": "University at Buffalo, SUNY",
       "institution": "University at Buffalo, SUNY",
-      "note": "GPA 3.53"
+      "note": "GPA 3.53/4.0"
     },
     {
       "rev": "C",
       "description": "AWS Certified Machine Learning Engineer – Associate (MLA-C01)",
-      "org": "AWS",
+      "org": "Amazon Web Services",
       "note": "Certification"
     },
     {
       "rev": "D",
       "description": "AWS Certified AI Practitioner (AIF-C01)",
-      "org": "AWS",
+      "org": "Amazon Web Services",
       "note": "Certification"
     },
     {
       "rev": "E",
       "description": "AWS SimuLearn: AI Practitioner",
-      "org": "AWS",
+      "org": "Amazon Web Services",
       "note": "Training Badge"
     },
     {

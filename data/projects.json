@@ -4,12 +4,16 @@
   "projects": [
     {
       "part": "PN-01",
-      "name": "LEDGER",
-      "category": "Self-Verifying RAG",
+      "name": "LEDGER: Self-Verifying RAG",
+      "category": "AI Reliability",
       "image": "assets/images/projects/ledger.svg",
-      "description": "Question answering over U.S. federal budget and energy reports that splits each answer into atomic claims, checks every claim against retrieved source evidence with a local 7–8B model, and rewrites or removes unsupported statements. Rebuilding Docling's broken tables from the PDF text layer raised held-out table-cell accuracy from 30.5% to 100%.",
+      "description": "A self-verifying RAG system for U.S. federal budget and energy reports that decomposes generated answers into atomic factual claims, checks each claim against retrieved source evidence using a local 7–8B model, and rewrites or removes unsupported statements.",
+      "highlights": [
+        "Diagnosed a Docling table-parsing defect affecting 5.5% of table cells and implemented PDF text-layer reconstruction, raising held-out table-cell accuracy from 30.5% to 100% on Economic Report of the President tables",
+        "Distributed tracing with OpenTelemetry and a self-hosted Arize Phoenix instance on AWS EC2",
+        "Crash-safe, resumable Batch API evaluation runner and 223 automated tests in GitHub Actions CI"
+      ],
       "technologies": [
-        "Python",
         "Docling",
         "Qdrant",
         "OpenTelemetry",
@@ -26,10 +30,15 @@
     },
     {
       "part": "PN-02",
-      "name": "TheraMind",
-      "category": "Clinical LLM Agent",
+      "name": "TheraMind: Dual-Mode Clinical LLM Agent",
+      "category": "LLM Fine-Tuning",
       "image": "assets/images/projects/theramind.svg",
-      "description": "Dual-mode clinical agent fine-tuned from Llama 3.2-3B with QLoRA and DPO on 9,250 clinical dialogues, improving ROUGE-L from 0.40 to 0.78 in a 19.5-minute run on an RTX 4090. One model runs a patient-intake chat, then writes a structured SOAP note for the doctor, grounded by ChromaDB RAG and emergency-symptom guardrails.",
+      "description": "A clinical LLM agent fine-tuned from Llama 3.2-3B using QLoRA and DPO on 9,250 clinical dialogues, improving ROUGE-L from 0.40 to 0.78 with a 19.5-minute training runtime on an RTX 4090. One model runs patient intake, then writes a structured SOAP note for the doctor.",
+      "highlights": [
+        "ChromaDB-based RAG for clinical intake and note generation, combining retrieval-grounded responses, safety prompts, constrained decoding, and prompt-injection testing to reduce cross-mode contamination risks",
+        "Direct Preference Optimization with β = 0.1 using 49 preference pairs derived from model errors and reference responses, kept separate from supervised fine-tuning",
+        "Served with FastAPI in Docker on Hugging Face Spaces"
+      ],
       "technologies": [
         "Llama 3.2-3B",
         "QLoRA",
@@ -54,7 +63,12 @@
       "name": "BreachLens",
       "category": "Data Engineering",
       "image": "assets/images/projects/breachlens.svg",
-      "description": "Python and KNIME pipeline that extracts PII/PHI from synthetic breach documents (PDFs, scans and messy Excel/CSV exports), validates it, verifies addresses with the U.S. Census geocoder, and matches people across files into one privacy-safe notification list per state. Matched the ground truth exactly (155/155); 50,000 rows run in about 39 seconds.",
+      "description": "Python and KNIME pipeline that extracts PII/PHI from synthetic breach documents (PDFs, scanned forms and messy Excel/CSV exports), validates it, verifies addresses with the U.S. Census geocoder, and matches people across files into one privacy-safe notification list per state.",
+      "highlights": [
+        "Notification list matched the ground truth exactly: 155/155 on the dev corpus and 159/159 on an untuned holdout",
+        "Person matching at 1.000 pairwise precision; a 50,000-row file runs end to end in about 39 seconds",
+        "Raw identifiers never reach an output file, only masked values and salted HMAC keys"
+      ],
       "technologies": [
         "Python",
         "pandas",

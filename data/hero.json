@@ -6,7 +6,7 @@
   "title": "AI/ML Engineer · LLM Evaluation & AI Reliability",
   "dimensionLabel": "L = 12 CH — SCALE 1:1",
   "summaryLabel": "NOTE 00",
-  "summary": "AI/ML Engineer with 4+ years building production machine learning and generative AI systems at C3 AI, Glean and Accenture. I specialize in AI reliability, LLM evaluation and scalable inference: multi-agent workflows, hallucination detection, self-verifying RAG pipelines and model-serving platforms that handle 1M+ daily requests at 99.9% uptime.",
+  "summary": "AI/ML Engineer with 4+ years of experience developing production machine learning and generative AI systems, specializing in AI reliability, LLM evaluation, and scalable inference infrastructure. Experienced in architecting multi-agent workflows, hallucination detection systems, self-verifying RAG pipelines, and enterprise model-serving platforms supporting 1M+ daily requests at 99.9% uptime.",
   "photo": {
     "src": "assets/images/vishnu-menon.jpg",
     "alt": "Portrait of Vishnu Menon",
@@ -63,12 +63,12 @@
       "label": "Daily Requests"
     },
     {
-      "value": "50M+",
-      "label": "Docs Indexed"
+      "value": "20+",
+      "label": "Enterprise Deployments"
     },
     {
-      "value": "99.9%",
-      "label": "Uptime"
+      "value": "50M+",
+      "label": "Docs Indexed"
     }
   ]
 }

@@ -254,6 +254,15 @@ function hydrateExperience(data) {
                 .map((d) => '<li>' + esc(d) + '</li>')
                 .join('');
             const tech = (role.technologies || []).join(' · ');
+            // Earlier titles held at the same company, drawn as sub-records of one station
+            const earlier = (role.earlier || [])
+                .map((e) =>
+                    '<div class="role-earlier">' +
+                    '<p class="role-sub"><span>' + esc(e.position) + '</span><span>' + esc(e.period || '') + '</span></p>' +
+                    '<ul class="role-details">' + (e.details || []).map((d) => '<li>' + esc(d) + '</li>').join('') + '</ul>' +
+                    '</div>'
+                )
+                .join('');
             const logo = role.logo
                 ? '<span class="role-logo"><img src="' + esc(role.logo) + '" alt="' + esc(role.company) + ' logo" loading="lazy" decoding="async"></span>'
                 : '';
@@ -266,6 +275,7 @@ function hydrateExperience(data) {
                 '</div></div>' +
                 (role.summary ? '<p class="role-summary">' + esc(role.summary) + '</p>' : '') +
                 (details ? '<ul class="role-details">' + details + '</ul>' : '') +
+                earlier +
                 (tech ? '<p class="role-tech">[ ' + esc(tech) + ' ]</p>' : '') +
                 '</article>'
             );
@@ -306,6 +316,9 @@ function hydrateProjects(data) {
                     : '') +
                 '<h3 class="schematic-name">' + esc(p.name) + '</h3>' +
                 '<p class="schematic-desc">' + esc(p.description || '') + '</p>' +
+                ((p.highlights || []).length
+                    ? '<ul class="role-details schematic-points">' + p.highlights.map((h) => '<li>' + esc(h) + '</li>').join('') + '</ul>'
+                    : '') +
                 (spec ? '<p class="schematic-spec">SPEC: ' + esc(spec) + '</p>' : '') +
                 (links ? '<div class="schematic-links">' + links + '</div>' : '') +
                 '</article>'

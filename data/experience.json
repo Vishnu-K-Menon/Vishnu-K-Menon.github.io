@@ -10,20 +10,20 @@
       "period": "Aug 2025 - Present",
       "span": "2025—NOW",
       "logo": "assets/images/logos/c3-ai.svg",
-      "summary": "Multi-tenant LLM and RAG inference platform for 20+ enterprise deployments.",
       "details": [
-        "Architected a multi-tenant LLM and RAG inference platform supporting 1M+ daily requests, separating retrieval, orchestration, and model-serving services on Kubernetes to maintain 99.9% uptime",
-        "Designed LangGraph-based AI orchestration workflows integrating document analysis, retrieval, LLM inference, and response verification, with automated validation gates, retry mechanisms, and fault isolation",
-        "Spearheaded the migration of 12 legacy ML workloads to AWS with Docker and Terraform, reducing infrastructure costs by 35% and deployment cycles from 10 days to 2 days",
-        "Orchestrated a cross-functional team of 6 engineers and 3 product owners to deliver a document-intelligence agent in 10 weeks",
-        "Instituted automated model evaluation and drift monitoring with MLflow, Prometheus, and Grafana in CI/CD, detecting model regressions 4x faster and reducing production incidents by 40%",
-        "Hardened embedding and vector-search infrastructure handling 50M+ documents through index sharding, response caching, and load-tested failover, keeping p95 latency below 300 ms under 3x normal traffic",
-        "Mentored 4 junior engineers, cutting their time to first production release from 8 weeks to 5"
+        "Architected a multi-tenant LLM and RAG inference platform supporting 20+ enterprise deployments and 1M+ daily requests, separating retrieval, orchestration, and model-serving services on Kubernetes to maintain 99.9% uptime",
+        "Designed LangGraph-based AI orchestration workflows integrating document analysis, retrieval, LLM inference, and response verification, with automated validation gates, retry mechanisms, and fault isolation across enterprise deployments",
+        "Spearheaded the migration of 12 legacy ML workloads from on-premises infrastructure to AWS, containerizing services with Docker and managing cloud environments through Terraform; reduced infrastructure costs by 35% and deployment cycles from 10 days to 2 days",
+        "Orchestrated a cross-functional team of 6 engineers and 3 product owners to deliver a document-intelligence agent in 10 weeks, establishing evaluation criteria, milestone ownership, and phased production rollout procedures",
+        "Instituted automated model evaluation and drift-monitoring workflows using MLflow, Prometheus, and Grafana, integrating regression checks and monitoring alerts into CI/CD processes to detect model regressions 4x faster and reduce production incidents by 40%",
+        "Hardened embedding and vector-search infrastructure handling 50M+ documents through index sharding, response caching, and load-tested failover, maintaining p95 latency below 300 ms under 3x normal traffic",
+        "Mentored 4 junior engineers through weekly architecture reviews, production deployment walkthroughs, and code reviews, reducing their time to first production release from 8 weeks to 5"
       ],
       "technologies": [
         "LangGraph",
         "Kubernetes",
         "AWS",
+        "Docker",
         "Terraform",
         "MLflow",
         "Prometheus",
@@ -38,20 +38,20 @@
       "period": "Jan 2023 - Jul 2024",
       "span": "2023—2024",
       "logo": "assets/images/logos/glean.svg",
-      "summary": "Semantic ranking, retrieval quality and RAG for enterprise search.",
       "details": [
-        "Optimized transformer-based semantic ranking models using hard-negative mining and embedding fine-tuning, improving offline top-3 relevance by 18% on NDCG and online click-through rates by 9%",
-        "Streamlined model development with reusable Apache Airflow pipelines and standardized feature management, reducing training and evaluation turnaround from 5 days to 1.5 days",
-        "Investigated retrieval-quality regressions across 30+ enterprise data connectors, tracing index staleness and tokenization inconsistencies and restoring measured answer accuracy to 94%",
-        "Accelerated search inference through INT8 quantization, request batching, and embedding caching, reducing p95 query latency by 40%, from 820 ms to 490 ms",
-        "Tuned RAG retrieval and generation across a 1,500-question evaluation benchmark, reducing hallucinated responses by 27%"
+        "Optimized transformer-based semantic ranking models for enterprise search using hard-negative mining and embedding fine-tuning, improving offline top-3 relevance by 18% on NDCG and online click-through rates by 9%",
+        "Streamlined model development workflows through reusable Apache Airflow pipelines and standardized feature management, reducing training and evaluation turnaround from 5 days to 1.5 days",
+        "Investigated retrieval-quality regressions across 30+ enterprise data connectors, identifying index staleness and tokenization inconsistencies through query-level diagnostics and log analysis, restoring measured answer accuracy to 94%",
+        "Accelerated search inference performance through INT8 model quantization, request batching, and embedding caching, reducing p95 query latency by 40%, from 820 ms to 490 ms",
+        "Tuned RAG retrieval and generation configurations across a 1,500-question evaluation benchmark, experimenting with document chunk sizes, reranking, and citation-grounded prompting to reduce hallucinated responses by 27%"
       ],
       "technologies": [
         "Transformers",
+        "Semantic Search",
         "RAG",
-        "Airflow",
-        "Quantization",
-        "Semantic Search"
+        "Reranking",
+        "Apache Airflow",
+        "INT8 Quantization"
       ]
     },
     {
@@ -59,17 +59,25 @@
       "position": "Data Scientist",
       "company": "Accenture",
       "location": "Kochi, India",
-      "period": "Jan 2021 - Dec 2022",
+      "period": "Aug 2021 - Dec 2022",
       "span": "2021—2022",
       "logo": "assets/images/logos/accenture.svg",
-      "summary": "Data Scientist (Aug 2021 – Dec 2022), promoted from Associate Data Scientist (Jan – Jul 2021).",
       "details": [
-        "Constructed a retail demand-forecasting model with XGBoost and Prophet ensembles, engineering 60+ predictive features and reducing MAPE from 18% to 14%",
-        "Integrated an NLP-based service ticket classifier using FastAPI and Docker on Azure, automating 70% of ticket routing and saving about 1,200 agent hours quarterly",
-        "Automated weekly operational reporting for 5 business units with Python, SQL, and Airflow, saving 25 analyst hours per week",
-        "Formulated a randomized experimentation framework supporting a 6% improvement in retention across 40K customers",
-        "Prototyped a hybrid recommendation system that lifted click-through rates by 12% in A/B testing",
-        "Trained Random Forest and XGBoost churn models reaching an AUC of 0.86, and validated a BERT document classifier at 91% F1 on 10K records"
+        "Constructed a retail demand-forecasting model using XGBoost and Prophet ensembles, engineering 60+ predictive features and improving forecast accuracy by reducing MAPE from 18% to 14%",
+        "Integrated an NLP-based service ticket classifier with the client's operational platform using FastAPI and Docker on Azure, automating 70% of ticket routing and saving approximately 1,200 agent hours quarterly",
+        "Automated weekly operational reporting for 5 business units using Python, SQL, and Airflow pipelines, replacing manual Excel processes and saving 25 analyst hours per week",
+        "Formulated a randomized experimentation framework for customer-retention initiatives, defining cohort assignments and statistical significance tests that supported a 6% improvement in retention across 40K customers"
+      ],
+      "earlier": [
+        {
+          "position": "Associate Data Scientist",
+          "period": "Jan 2021 - Jul 2021",
+          "details": [
+            "Prototyped a hybrid recommendation system combining collaborative and content-based filtering with Python, Pandas, and NumPy, achieving a 12% increase in click-through rates during A/B testing",
+            "Trained Random Forest and XGBoost churn prediction models, evaluating 40+ candidate features and performing cross-validated hyperparameter tuning to achieve an AUC of 0.86",
+            "Validated a BERT-based document-classification pilot on 10K labeled records, achieving a 91% F1 score through text preprocessing with SpaCy and NLTK and model version tracking in SageMaker"
+          ]
+        }
       ],
       "technologies": [
         "XGBoost",
@@ -77,6 +85,7 @@
         "NLP",
         "BERT",
         "FastAPI",
+        "Docker",
         "Azure",
         "SageMaker"
       ]

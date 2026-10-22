@@ -1494,6 +1494,38 @@ html.motion-ok .draw.revealed {
     aspect-ratio: 16 / 9;
 }
 
+/* Earlier title at the same company: a dashed sub-record inside the role card */
+.role-earlier {
+    border-top: 1px dashed var(--line-soft);
+    padding-top: 16px;
+    margin-top: 6px;
+}
+
+.role-sub {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    color: var(--ink-dim);
+    margin-bottom: 12px;
+}
+
+.role-sub span:first-child { color: var(--ink); }
+
+/* With highlights, the list (not the description) absorbs the card's spare height */
+.schematic-desc:has(+ .schematic-points) { flex: none; }
+
+.schematic-points {
+    margin-top: 14px;
+    flex: 1;
+}
+
+.schematic-points li { font-size: 0.88rem; }
+
 @media (max-width: 900px) {
     .hero-body { grid-template-columns: 1fr; gap: 12px; }
     .hero-photo { max-width: 320px; }
