@@ -1,801 +1,504 @@
-// ============================================
-// Portfolio Application - Main JavaScript
-// ============================================
+/* =============================================================
+   BLUEPRINT — cyanotype engineering drawing portfolio
+   All content is hydrated from data/*.json. A missing or empty
+   file hides its section entirely (never an empty shell).
+   ============================================================= */
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeApp();
-});
+'use strict';
 
-// ============================================
-// Initialize Application
-// ============================================
-async function initializeApp() {
-    try {
-        // Initialize particles background
-        initializeParticles();
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Load all data sections
+// When the browser runs scroll-driven animations, simple reveals are handled
+// by CSS inside @supports (animation-timeline: view()) — IO only draws lines.
+const SCROLL_DRIVEN =
+    typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline: view()');
+
+const $ = (id) => document.getElementById(id);
+
+function esc(value) {
+    return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function fetchJSON(name) {
+    return fetch('data/' + name + '.json')
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null);
+}
+
+function show(el) {
+    if (el) el.hidden = false;
+}
+
+function setText(id, value) {
+    const el = $(id);
+    if (el) el.textContent = value == null ? '' : String(value);
+}
+
+/* Shrink display type until its longest word fits the container.
+   Batched: one read pass, one proportional write, then a short settle loop
+   (rarely more than a single extra iteration) — no sustained layout thrash. */
+function fitToWidth(el, minPx) {
+    if (!el) return;
+    const min = minPx || 26;
+    el.style.fontSize = '';
+    const base = parseFloat(window.getComputedStyle(el).fontSize);
+    const sw = el.scrollWidth;
+    const cw = el.clientWidth;
+    if (!sw || !cw || sw <= cw) return;
+    let size = Math.max(min, Math.floor(base * (cw / sw)));
+    el.style.fontSize = size + 'px';
+    let guard = 8;
+    while (el.scrollWidth > el.clientWidth && size > min && guard-- > 0) {
+        size -= 2;
+        el.style.fontSize = size + 'px';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+async function init() {
+    if (!REDUCED_MOTION) document.documentElement.classList.add('motion-ok');
+
+    const [siteConfig, navigation, hero, about, experience, projects, skills, education, contact, footer] =
         await Promise.all([
-            loadSiteConfig(),
-            loadNavigation(),
-            loadHero(),
-            loadAbout(),
-            loadExperience(),
-            loadSkills(),
-            loadProjects(),
-            loadEducation(),
-            loadContact(),
-            loadFooter()
+            fetchJSON('site-config'),
+            fetchJSON('navigation'),
+            fetchJSON('hero'),
+            fetchJSON('about'),
+            fetchJSON('experience'),
+            fetchJSON('projects'),
+            fetchJSON('skills'),
+            fetchJSON('education'),
+            fetchJSON('contact'),
+            fetchJSON('footer')
         ]);
 
-        // Initialize interactive features
-        initializeNavigation();
-        initializeScrollEffects();
-        initializeScrollReveal();
-        initializeBackToTop();
+    hydrateSiteConfig(siteConfig);
+    hydrateNavigation(navigation);
+    hydrateHero(hero);
+    hydrateAbout(about);
+    hydrateExperience(experience);
+    hydrateProjects(projects);
+    hydrateSkills(skills);
+    hydrateEducation(education);
+    hydrateContact(contact);
+    hydrateFooter(footer);
 
-        console.log('Portfolio loaded successfully!');
-    } catch (error) {
-        console.error('Error initializing application:', error);
-    }
+    initNavToggle();
+    initReveal();
 }
 
-// ============================================
-// Load Site Configuration
-// ============================================
-async function loadSiteConfig() {
-    try {
-        const response = await fetch('data/site-config.json');
-        const data = await response.json();
-
-        // Update meta tags
-        document.title = data.title;
-        document.querySelector('meta[name="description"]').setAttribute('content', data.description);
-        document.querySelector('meta[name="keywords"]').setAttribute('content', data.keywords);
-        document.querySelector('meta[name="author"]').setAttribute('content', data.author);
-    } catch (error) {
-        console.error('Error loading site config:', error);
-    }
+/* ---------------------------------------------------------- site config */
+function hydrateSiteConfig(data) {
+    const meta = (data && (data.meta || data)) || null;
+    if (!meta) return;
+    if (meta.title) document.title = meta.title;
+    const desc = document.querySelector('meta[name="description"]');
+    const author = document.querySelector('meta[name="author"]');
+    if (desc && meta.description) desc.content = meta.description;
+    if (author && meta.author) author.content = meta.author;
 }
 
-// ============================================
-// Load Navigation
-// ============================================
-async function loadNavigation() {
-    try {
-        const response = await fetch('data/navigation.json');
-        const data = await response.json();
+/* ----------------------------------------------------------- navigation */
+function hydrateNavigation(data) {
+    if (!data || !data.brand || !data.brand.name) return;
+    setText('brand-monogram', data.brand.monogram || data.brand.name.charAt(0));
+    setText('brand-name', data.brand.name);
+    setText('brand-dwg', data.brand.drawingNumber || '');
 
-        // Set brand name
-        const brandElement = document.getElementById('nav-brand');
-        if (brandElement) {
-            brandElement.textContent = data.brand.name;
-            brandElement.href = data.brand.href;
-        }
-
-        // Build navigation menu
-        const navMenu = document.getElementById('nav-menu');
-        if (navMenu) {
-            navMenu.innerHTML = data.menuItems.map(item => `
-                <li>
-                    <a href="${item.href}" class="nav-link">
-                        <i class="${item.icon}"></i>
-                        ${item.text}
-                    </a>
-                </li>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading navigation:', error);
-    }
+    const items = data.menuItems || [];
+    $('nav-menu').innerHTML = items
+        .map((item, i) =>
+            '<li><a href="' + esc(item.href) + '" class="nav-link">' +
+            '<span class="nav-idx">' + String(i + 1).padStart(2, '0') + '</span>' +
+            esc(item.text) + '</a></li>'
+        )
+        .join('');
+    show($('navbar'));
 }
 
-// ============================================
-// Load Hero Section
-// ============================================
-async function loadHero() {
-    try {
-        const response = await fetch('data/hero.json');
-        const data = await response.json();
+/* ----------------------------------------------------------------- hero */
+function hydrateHero(data) {
+    if (!data || !data.name) return;
 
-        // Set text content
-        document.getElementById('hero-greeting').textContent = data.greeting;
-        document.getElementById('hero-name').innerHTML = `${data.name.split(' ')[0]} <span>${data.name.split(' ').slice(1).join(' ')}</span>`;
-        // Keep each " · "-separated part on one line so wrapping happens at the separator
-        document.getElementById('hero-title').innerHTML = data.title
-            .split(' · ')
-            .map(part => `<span class="hero-title-part">${part}</span>`)
-            .join('<span class="hero-title-sep"> · </span>');
-        const taglineElement = document.getElementById('hero-tagline');
-        if (data.tagline && data.tagline !== data.title) {
-            taglineElement.textContent = data.tagline;
-        } else {
-            taglineElement.remove();
-        }
-        document.getElementById('hero-summary').textContent = data.summary;
+    setText('hero-dwg', data.drawingNumber || '');
+    const figure = [data.figure, data.figureLabel].filter(Boolean).join(' — ');
+    setText('hero-figure', figure);
+    setText('hero-name', data.name);
+    setText('hero-dim-label', data.dimensionLabel || '');
+    setText('hero-title', data.title || '');
 
-        // Render highlights
-        const highlightsContainer = document.getElementById('hero-highlights');
-        if (highlightsContainer && data.highlights) {
-            highlightsContainer.innerHTML = data.highlights.map(highlight => `
-                <div class="highlight-item">
-                    <i class="${highlight.icon}" style="color: ${highlight.color}"></i>
-                    <span>${highlight.text}</span>
-                </div>
-            `).join('');
-        }
-
-        // Render CTA buttons
-        const ctaContainer = document.getElementById('hero-cta');
-        if (ctaContainer && data.cta && data.cta.buttons) {
-            ctaContainer.innerHTML = data.cta.buttons.map(button => `
-                <a href="${button.href}" class="btn btn-${button.type}">
-                    ${button.icon ? `<i class="${button.icon}"></i>` : ''}
-                    ${button.text}
-                </a>
-            `).join('');
-        }
-
-        // Render social links
-        const socialContainer = document.getElementById('hero-social');
-        if (socialContainer && data.socialLinks) {
-            socialContainer.innerHTML = data.socialLinks.map(link => `
-                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="${link.platform}">
-                    <i class="${link.icon}"></i>
-                </a>
-            `).join('');
-        }
-
-        // Render scroll indicator
-        const scrollIndicator = document.getElementById('scroll-indicator');
-        if (scrollIndicator && data.scrollIndicator) {
-            scrollIndicator.innerHTML = `
-                <span>${data.scrollIndicator.text}</span>
-                <i class="${data.scrollIndicator.icon}"></i>
-            `;
-        }
-    } catch (error) {
-        console.error('Error loading hero section:', error);
+    if (data.summary) {
+        setText('hero-note-label', data.summaryLabel || 'NOTE');
+        setText('hero-summary', data.summary);
+    } else {
+        $('hero-note').remove();
     }
+
+    const meta = data.meta || [];
+    $('hero-meta').innerHTML = meta
+        .map((m) => {
+            const value = m.href
+                ? '<a href="' + esc(m.href) + '">' + esc(m.value) + '</a>'
+                : '<span class="meta-value">' + esc(m.value) + '</span>';
+            return '<li><span class="meta-label">' + esc(m.label) + '</span>' + value + '</li>';
+        })
+        .join('');
+
+    const buttons = (data.cta && data.cta.buttons) || [];
+    $('hero-cta').innerHTML = buttons
+        .map((b) => '<a href="' + esc(b.href) + '" class="btn btn-' + esc(b.type || 'secondary') + '">' + esc(b.text) + '</a>')
+        .join('');
+
+    const readouts = data.readouts || [];
+    $('hero-readouts').innerHTML = readouts
+        .map((r) =>
+            '<div class="readout"><span class="readout-value">' + esc(r.value) + '</span>' +
+            '<span class="readout-label">' + esc(r.label) + '</span></div>'
+        )
+        .join('');
+
+    if (data.photo && data.photo.src) {
+        const img = $('hero-photo-img');
+        img.src = data.photo.src;
+        img.alt = data.photo.alt || data.name;
+        setText('hero-photo-dim', data.photo.dimensionLabel || '');
+        setText('hero-photo-caption', data.photo.caption || '');
+        show($('hero-photo'));
+    } else {
+        $('hero-photo').remove();
+    }
+
+    show($('hero'));
+
+    const name = $('hero-name');
+    const refit = () => fitToWidth(name, 30);
+    refit();
+    let fitRaf = 0;
+    window.addEventListener('resize', () => {
+        if (fitRaf) cancelAnimationFrame(fitRaf);
+        fitRaf = requestAnimationFrame(refit);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
 }
 
-// ============================================
-// Load About Section
-// ============================================
-async function loadAbout() {
-    try {
-        const response = await fetch('data/about.json');
-        const data = await response.json();
+/* ---------------------------------------------------------------- about */
+function hydrateAbout(data) {
+    if (!data || !data.notes || data.notes.length === 0) return;
 
-        // Set section title
-        document.getElementById('about-title').textContent = data.sectionTitle;
+    setText('about-figure', data.figure || 'NOTES');
+    setText('about-title', data.sectionTitle || 'General Notes');
 
-        // Render paragraphs
-        const textContainer = document.getElementById('about-text');
-        if (textContainer && data.paragraphs) {
-            textContainer.innerHTML = data.paragraphs.map(paragraph => `
-                <p>${paragraph}</p>
-            `).join('');
-        }
+    $('about-notes').innerHTML = data.notes
+        .map((note) => '<li class="reveal">' + esc(note) + '</li>')
+        .join('');
 
-        // Render statistics
-        const statsContainer = document.getElementById('about-stats');
-        if (statsContainer && data.statistics) {
-            statsContainer.innerHTML = data.statistics.map(stat => `
-                <div class="stat-card">
-                    <i class="${stat.icon}" style="color: ${stat.color}"></i>
-                    <span class="stat-value">${stat.value}</span>
-                    <span class="stat-label">${stat.label}</span>
-                </div>
-            `).join('');
-        }
+    const specs = data.specs || [];
+    $('about-specs').innerHTML = specs
+        .map((s) =>
+            '<div class="spec-row"><dt>' + esc(s.label) + '</dt><dd>' + esc(s.value) + '</dd></div>'
+        )
+        .join('');
+    if (specs.length === 0) $('about-specs').remove();
 
-        // Render download CV button
-        const actionsContainer = document.getElementById('about-actions');
-        if (actionsContainer && data.downloadCV) {
-            actionsContainer.innerHTML = `
-                <a href="${data.downloadCV.href}" download class="btn btn-primary">
-                    <i class="${data.downloadCV.icon}"></i>
-                    ${data.downloadCV.text}
-                </a>
-            `;
-        }
-    } catch (error) {
-        console.error('Error loading about section:', error);
-    }
+    show($('about'));
 }
 
-// ============================================
-// Load Experience Section
-// ============================================
-async function loadExperience() {
-    try {
-        const response = await fetch('data/experience.json');
-        const data = await response.json();
-
-        // Set section title
-        document.getElementById('experience-title').textContent = data.sectionTitle;
-
-        // Render timeline
-        const timelineContainer = document.getElementById('experience-timeline');
-        if (timelineContainer && data.experiences) {
-            timelineContainer.innerHTML = data.experiences.map(exp => `
-                <div class="timeline-item">
-                    <div class="timeline-empty"></div>
-                    <div class="timeline-icon" style="background: ${exp.color || 'var(--gradient-primary)'}">
-                        <i class="${exp.icon || 'fas fa-briefcase'}"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="experience-header">
-                            <div class="experience-brand">
-                                <div class="company-logo${exp.logo ? '' : ' logo-fallback'}">
-                                    ${exp.logo ? `
-                                        <img src="${exp.logo}" alt="${exp.company} logo" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('logo-fallback'); this.remove();">
-                                    ` : ''}
-                                    <span aria-hidden="true">${exp.company.split(' ').filter(Boolean).map(word => word[0]).join('').slice(0, 2)}</span>
-                                </div>
-                                <div>
-                                    <h3 class="experience-title">${exp.title}</h3>
-                                    <p class="experience-company">
-                                        ${exp.company} ${exp.location ? `• ${exp.location}` : ''}
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="experience-period">
-                                <i class="fas fa-calendar-alt"></i>
-                                ${exp.period}
-                                ${exp.type ? `<span class="experience-type">• ${exp.type}</span>` : ''}
-                            </p>
-                        </div>
-                        ${exp.description ? `<p class="experience-description">${exp.description}</p>` : ''}
-                        ${exp.responsibilities ? `
-                            <ul class="experience-responsibilities">
-                                ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                            </ul>
-                        ` : ''}
-                        ${exp.technologies ? `
-                            <div class="experience-tech">
-                                ${exp.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                            </div>
-                        ` : ''}
-                    </div>
-                </div>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading experience section:', error);
-    }
+/* ----------------------------------------------- experience + datum SVG */
+function truncate(text, max) {
+    const s = String(text || '');
+    return s.length > max ? s.slice(0, max - 1) + '…' : s;
 }
 
-// ============================================
-// Load Skills Section
-// ============================================
-async function loadSkills() {
-    try {
-        const response = await fetch('data/skills.json');
-        const data = await response.json();
+function buildDatumStrip(roles) {
+    const svg = $('datum-strip');
+    if (!svg) return;
+    const n = roles.length;
+    const w = 1000;
+    const parts = [];
 
-        // Set section title
-        document.getElementById('skills-title').textContent = data.sectionTitle;
+    parts.push('<line class="datum-ext" x1="0" y1="46" x2="' + w + '" y2="46"/>');
+    parts.push('<line class="datum-line draw" x1="8" y1="46" x2="' + (w - 8) + '" y2="46" pathLength="1"/>');
 
-        // Render skill categories
-        const skillsGrid = document.getElementById('skills-grid');
-        if (skillsGrid && data.categories) {
-            skillsGrid.innerHTML = data.categories.map(category => `
-                <div class="skill-category">
-                    <div class="skill-category-header">
-                        <div class="skill-category-icon" style="background: ${category.color}20; color: ${category.color}">
-                            <i class="${category.icon}"></i>
-                        </div>
-                        <h3 class="skill-category-title">${category.category}</h3>
-                    </div>
-                    <div class="skill-list">
-                        ${category.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
-                    </div>
-                </div>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading skills section:', error);
-    }
+    // Keep company labels from colliding when there are many stations.
+    const maxChars = Math.min(18, Math.max(8, Math.floor(120 / n)));
+
+    roles.forEach((role, i) => {
+        const x = Math.round((i + 0.5) * (w / n));
+        parts.push('<line class="datum-tick" x1="' + x + '" y1="36" x2="' + x + '" y2="56"/>');
+        parts.push('<circle class="datum-node" cx="' + x + '" cy="46" r="5"/>');
+        parts.push('<text class="datum-sta" x="' + x + '" y="18" text-anchor="middle">' + esc(String(role.station || '').toUpperCase()) + '</text>');
+        parts.push('<text class="datum-co" x="' + x + '" y="78" text-anchor="middle">' + esc(truncate(String(role.company || '').toUpperCase(), maxChars)) + '</text>');
+        parts.push('<text class="datum-span" x="' + x + '" y="94" text-anchor="middle">' + esc(String(role.span || '').toUpperCase()) + '</text>');
+    });
+
+    svg.innerHTML = parts.join('');
 }
 
-// ============================================
-// Load Projects Section
-// ============================================
-async function loadProjects() {
-    try {
-        const response = await fetch('data/projects.json');
-        const data = await response.json();
+function hydrateExperience(data) {
+    if (!data || !data.roles || data.roles.length === 0) return;
 
-        // Set section title
-        document.getElementById('projects-title').textContent = data.sectionTitle;
+    setText('experience-figure', data.figure || 'FIG. 01');
+    setText('experience-title', data.sectionTitle || 'Service Record');
+    buildDatumStrip(data.roles);
 
-        // Render projects
-        const projectsGrid = document.getElementById('projects-grid');
-        if (projectsGrid && data.projects) {
-            projectsGrid.innerHTML = data.projects.map(project => `
-                <div class="project-card">
-                    <div class="project-visual${project.image ? ' has-image' : ''}">
-                        ${project.image ? `
-                            <img class="project-thumb" src="${project.image}" alt="${project.title} thumbnail" loading="lazy" decoding="async" onerror="this.parentElement.classList.remove('has-image'); this.remove();">
-                        ` : ''}
-                        <div class="project-icon" style="background: ${project.color}">
-                            <i class="${project.icon}"></i>
-                        </div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">${project.title}</h3>
-                    </div>
-                    <p class="project-description">${project.description}</p>
-                    ${project.technologies ? `
-                        <div class="project-tech">
-                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                    ${project.links && project.links.github ? `
-                        <div class="project-links">
-                            <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i>
-                                Code
-                            </a>
-                            ${project.links.demo ? `
-                                <a href="${project.links.demo}" target="_blank" rel="noopener noreferrer" class="project-link">
-                                    <i class="fas fa-arrow-up-right-from-square"></i>
-                                    Live Demo
-                                </a>
-                            ` : ''}
-                        </div>
-                    ` : ''}
-                    ${project.stats ? `
-                        <div class="project-stats">
-                            ${Object.entries(project.stats).map(([key, value]) => `
-                                <div class="project-stat">
-                                    <span class="project-stat-value">${value}</span>
-                                    <span class="project-stat-label">${key}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading projects section:', error);
-    }
+    $('experience-list').innerHTML = data.roles
+        .map((role) => {
+            const org = [role.company, role.location].filter(Boolean).join(' · ');
+            const details = (role.details || [])
+                .map((d) => '<li>' + esc(d) + '</li>')
+                .join('');
+            const tech = (role.technologies || []).join(' · ');
+            const logo = role.logo
+                ? '<span class="role-logo"><img src="' + esc(role.logo) + '" alt="' + esc(role.company) + ' logo" loading="lazy" decoding="async"></span>'
+                : '';
+            return (
+                '<article class="role reveal">' +
+                '<header class="role-head"><span>' + esc(role.station || '') + '</span><span>' + esc(role.period || '') + '</span></header>' +
+                '<div class="role-id">' + logo + '<div>' +
+                '<h3 class="role-position">' + esc(role.position) + '</h3>' +
+                '<p class="role-org">' + esc(org) + '</p>' +
+                '</div></div>' +
+                (role.summary ? '<p class="role-summary">' + esc(role.summary) + '</p>' : '') +
+                (details ? '<ul class="role-details">' + details + '</ul>' : '') +
+                (tech ? '<p class="role-tech">[ ' + esc(tech) + ' ]</p>' : '') +
+                '</article>'
+            );
+        })
+        .join('');
+
+    show($('experience'));
 }
 
-// ============================================
-// Load Education Section
-// ============================================
-async function loadEducation() {
-    try {
-        const response = await fetch('data/education.json');
-        const data = await response.json();
+/* ------------------------------------------------------------- projects */
+function hydrateProjects(data) {
+    if (!data || !data.projects || data.projects.length === 0) return;
 
-        // Set section title
-        document.getElementById('education-title').textContent = data.sectionTitle;
+    setText('projects-figure', data.figure || 'FIG. 02');
+    setText('projects-title', data.sectionTitle || 'Project Schematics');
 
-        // Render education items
-        const educationGrid = document.getElementById('education-grid');
-        if (educationGrid && data.education) {
-            educationGrid.innerHTML = data.education.map(edu => `
-                <div class="education-card">
-                    <div class="education-icon" style="background: ${edu.color}20; color: ${edu.color}">
-                        <i class="${edu.icon}"></i>
-                    </div>
-                    <h3 class="education-degree">${edu.degree}</h3>
-                    <p class="education-institution">${edu.institution}</p>
-                    <p class="education-period">${edu.period}</p>
-                    <p class="education-description">${edu.description}</p>
-                    ${edu.achievements ? `
-                        <ul class="education-achievements">
-                            ${edu.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
-                        </ul>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
+    const crops =
+        '<span class="crop crop-tl" aria-hidden="true"></span>' +
+        '<span class="crop crop-tr" aria-hidden="true"></span>' +
+        '<span class="crop crop-bl" aria-hidden="true"></span>' +
+        '<span class="crop crop-br" aria-hidden="true"></span>';
 
-        // Set certifications title
-        const certificationsTitle = document.getElementById('certifications-title');
-        certificationsTitle.textContent = data.certificationsTitle;
-        // Hide the heading when there is nothing to list under it
-        certificationsTitle.hidden = !(data.certifications && data.certifications.length);
+    $('projects-grid').innerHTML = data.projects
+        .map((p) => {
+            const spec = (p.technologies || []).join(' · ');
+            const links = (p.links || [])
+                .map((l) =>
+                    '<a href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' +
+                    esc(l.label) + ' ↗</a>'
+                )
+                .join('');
+            return (
+                '<article class="schematic reveal">' + crops +
+                '<header class="schematic-head"><span>' + esc(p.part || '') + '</span>' +
+                (p.category ? '<span>[ ' + esc(p.category) + ' ]</span>' : '') + '</header>' +
+                (p.image
+                    ? '<figure class="schematic-fig"><img src="' + esc(p.image) + '" alt="' + esc(p.name) + ' schematic" width="640" height="360" loading="lazy" decoding="async"></figure>'
+                    : '') +
+                '<h3 class="schematic-name">' + esc(p.name) + '</h3>' +
+                '<p class="schematic-desc">' + esc(p.description || '') + '</p>' +
+                (spec ? '<p class="schematic-spec">SPEC: ' + esc(spec) + '</p>' : '') +
+                (links ? '<div class="schematic-links">' + links + '</div>' : '') +
+                '</article>'
+            );
+        })
+        .join('');
 
-        // Render certifications
-        const certificationsGrid = document.getElementById('certifications-grid');
-        if (certificationsGrid && data.certifications) {
-            certificationsGrid.innerHTML = data.certifications.map(cert => `
-                <div class="certification-card">
-                    ${cert.badge ? `
-                        <img class="certification-badge" src="${cert.badge}" alt="${cert.title} badge" loading="lazy" decoding="async">
-                    ` : `
-                        <div class="certification-icon" style="color: ${cert.color}">
-                            <i class="${cert.icon}"></i>
-                        </div>
-                    `}
-                    <h4 class="certification-title">${cert.title}</h4>
-                    <p class="certification-issuer">${cert.issuer}</p>
-                    <p class="certification-date">${cert.date}</p>
-                    ${cert.url ? `
-                        <a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="certification-link">
-                            Verify <i class="fas fa-arrow-up-right-from-square"></i>
-                        </a>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading education section:', error);
-    }
+    show($('projects'));
 }
 
-// ============================================
-// Load Contact Section
-// ============================================
-async function loadContact() {
-    try {
-        const response = await fetch('data/contact.json');
-        const data = await response.json();
+/* --------------------------------------------------------------- skills */
+function hydrateSkills(data) {
+    if (!data || !data.rows || data.rows.length === 0) return;
 
-        // Set section title and subtitle
-        document.getElementById('contact-title').textContent = data.sectionTitle;
-        document.getElementById('contact-subtitle').textContent = data.subtitle;
+    setText('skills-figure', data.figure || 'FIG. 03');
+    setText('skills-title', data.sectionTitle || 'Parts Schedule');
 
-        // Render contact info
-        const contactInfoContainer = document.getElementById('contact-info');
-        if (contactInfoContainer && data.contactInfo) {
-            contactInfoContainer.innerHTML = data.contactInfo.map(info => `
-                <a href="${info.href}" class="contact-info-item" ${info.type !== 'location' ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                    <div class="contact-icon" style="background: ${info.color}20; color: ${info.color}">
-                        <i class="${info.icon}"></i>
-                    </div>
-                    <div class="contact-info-content">
-                        <h4>${info.label}</h4>
-                        <p>${info.value}</p>
-                    </div>
-                </a>
-            `).join('');
+    $('skills-rows').innerHTML = data.rows
+        .map((row) =>
+            '<tr>' +
+            '<td class="cell-mono" data-label="REF">' + esc(row.ref) + '</td>' +
+            '<td class="cell-strong" data-label="CATEGORY">' + esc(row.category) + '</td>' +
+            '<td data-label="ITEMS">' + esc((row.items || []).join(' · ')) + '</td>' +
+            '<td class="cell-mono td-num" data-label="QTY">' + esc(row.qty) + '</td>' +
+            '</tr>'
+        )
+        .join('');
+
+    if (data.note) {
+        setText('skills-note', data.note);
+    } else {
+        $('skills-note').remove();
+    }
+
+    show($('skills'));
+}
+
+/* ---------------------------------------- education → revision history */
+function hydrateEducation(data) {
+    if (!data || !data.revisions || data.revisions.length === 0) return;
+
+    setText('education-figure', data.figure || 'FIG. 04');
+    setText('education-title', data.sectionTitle || 'Revision History');
+
+    $('education-rows').innerHTML = data.revisions
+        .map((rev) =>
+            '<tr>' +
+            '<td class="cell-mono" data-label="REV">' + esc(rev.rev) + '</td>' +
+            '<td class="cell-mono" data-label="DATE">' + esc(rev.date || '—') + '</td>' +
+            '<td class="cell-strong" data-label="DESCRIPTION">' + esc(rev.description) + '</td>' +
+            '<td data-label="ISSUED BY">' + esc(rev.org || '—') + '</td>' +
+            '<td class="cell-mono" data-label="NOTE">' + esc(rev.note || '—') + '</td>' +
+            '</tr>'
+        )
+        .join('');
+
+    show($('education'));
+}
+
+/* -------------------------------------------------------------- contact */
+function hydrateContact(data) {
+    if (!data || (!data.email && (!data.channels || data.channels.length === 0))) return;
+
+    setText('contact-figure', data.figure || 'FIG. 05');
+    setText('contact-title', data.sectionTitle || 'Contact Detail');
+    setText('contact-subtitle', data.subtitle || '');
+
+    const emailEl = $('contact-email');
+    if (data.email) {
+        emailEl.textContent = data.email;
+        emailEl.href = 'mailto:' + data.email;
+        // The shared enhancement layer copies mailto addresses on activation
+        // when the Clipboard API exists; the hint mirrors what will happen.
+        const hint = $('email-hint');
+        hint.textContent = navigator.clipboard && navigator.clipboard.writeText
+            ? 'TAP TO COPY / SEND'
+            : 'SEND ↗';
+    } else {
+        $('email-row').remove();
+    }
+
+    const cells = [
+        { label: 'Location', value: data.location },
+        { label: 'Phone', value: data.phone },
+        { label: 'Status', value: data.availability }
+    ].filter((c) => c.value);
+
+    $('contact-grid').innerHTML = cells
+        .map((c) =>
+            '<div class="contact-cell"><span class="cell-label">' + esc(c.label) + '</span>' +
+            '<span class="cell-value">' + esc(c.value) + '</span></div>'
+        )
+        .join('');
+    if (cells.length === 0) $('contact-grid').remove();
+
+    const channels = data.channels || [];
+    $('contact-channels').innerHTML = channels
+        .map((ch) =>
+            '<li><a href="' + esc(ch.url) + '" target="_blank" rel="noopener noreferrer">' +
+            '<span class="ch-label">' + esc(ch.label) + '</span>' + esc(ch.value) + ' ↗</a></li>'
+        )
+        .join('');
+    if (channels.length === 0) $('contact-channels').remove();
+
+    show($('contact'));
+}
+
+/* ------------------------------------------------- footer / title block */
+function hydrateFooter(data) {
+    if (!data || !data.titleBlock || !data.titleBlock.drawnBy) return;
+    const tb = data.titleBlock;
+
+    setText('footer-credit', data.credit || '');
+    setText('footer-copyright', data.copyright || '');
+
+    const cells = [
+        { label: 'Project', value: tb.project, wide: true },
+        { label: 'Drawn By', value: tb.drawnBy },
+        { label: 'Discipline', value: tb.role },
+        { label: 'Location', value: tb.location },
+        { label: 'Email', value: tb.email, href: tb.email ? 'mailto:' + tb.email : '' },
+        { label: 'DWG No.', value: tb.drawingNumber },
+        { label: 'Rev', value: tb.revision },
+        { label: 'Sheet', value: tb.sheet },
+        { label: 'Scale', value: tb.scale }
+    ].filter((c) => c.value);
+
+    $('title-block').innerHTML = cells
+        .map((c) => {
+            const value = c.href
+                ? '<a href="' + esc(c.href) + '">' + esc(c.value) + '</a>'
+                : esc(c.value);
+            return (
+                '<div class="tb-cell' + (c.wide ? ' tb-wide' : '') + '">' +
+                '<span class="tb-label">' + esc(c.label) + '</span>' +
+                '<span class="tb-value">' + value + '</span></div>'
+            );
+        })
+        .join('');
+
+    show($('footer'));
+}
+
+/* ------------------------------------------------------------ nav toggle */
+function initNavToggle() {
+    const navbar = $('navbar');
+    const toggle = $('nav-toggle');
+    if (!navbar || !toggle) return;
+
+    toggle.addEventListener('click', () => {
+        const open = navbar.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    navbar.addEventListener('click', (e) => {
+        if (e.target.closest('.nav-link')) {
+            navbar.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
         }
+    });
 
-        // Render contact form
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm && data.form) {
-            contactForm.action = data.form.action;
-            contactForm.method = data.form.method;
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navbar.classList.contains('open')) {
+            navbar.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
 
-            contactForm.innerHTML = data.form.fields.map(field => `
-                <div class="form-group">
-                    <label for="${field.name}">
-                        <i class="${field.icon}"></i>
-                        ${field.label}
-                    </label>
-                    ${field.type === 'textarea' ? `
-                        <textarea
-                            id="${field.name}"
-                            name="${field.name}"
-                            placeholder="${field.placeholder}"
-                            ${field.required ? 'required' : ''}
-                            rows="${field.rows || 5}"
-                        ></textarea>
-                    ` : `
-                        <input
-                            type="${field.type}"
-                            id="${field.name}"
-                            name="${field.name}"
-                            placeholder="${field.placeholder}"
-                            ${field.required ? 'required' : ''}
-                        />
-                    `}
-                </div>
-            `).join('') + `
-                <button type="submit" class="form-submit">
-                    <i class="${data.form.submitIcon}"></i>
-                    ${data.form.submitText}
-                </button>
-                <div class="form-message"></div>
-            `;
+/* --------------------------------- section reveal + line-draw animation */
+function initReveal() {
+    // Line-draw (stroke-dashoffset) is the signature animation and stays on
+    // the JS/IO path everywhere. Simple .reveal fades move to pure CSS
+    // scroll-driven animations when the browser supports view() timelines.
+    const selector = SCROLL_DRIVEN ? '.fig-rule, .datum-strip' : '.reveal, .fig-rule, .datum-strip';
+    const targets = document.querySelectorAll(selector);
 
-            // Handle form submission
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const formMessage = contactForm.querySelector('.form-message');
-                const submitButton = contactForm.querySelector('.form-submit');
+    if (REDUCED_MOTION || !('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('revealed'));
+        return;
+    }
 
-                try {
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-                    const formData = new FormData(contactForm);
-                    const response = await fetch(contactForm.action, {
-                        method: contactForm.method,
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        formMessage.textContent = data.form.successMessage;
-                        formMessage.className = 'form-message success';
-                        formMessage.style.display = 'block';
-                        contactForm.reset();
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    formMessage.textContent = data.form.errorMessage;
-                    formMessage.className = 'form-message error';
-                    formMessage.style.display = 'block';
-                } finally {
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = `<i class="${data.form.submitIcon}"></i> ${data.form.submitText}`;
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    obs.unobserve(entry.target);
                 }
             });
-        }
+        },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
 
-        // Render social media links
-        const contactSocial = document.getElementById('contact-social');
-        if (contactSocial && data.socialMedia) {
-            contactSocial.innerHTML = data.socialMedia.map(social => `
-                <a href="${social.url}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="${social.platform}">
-                    <i class="${social.icon}"></i>
-                </a>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading contact section:', error);
-    }
-}
-
-// ============================================
-// Load Footer
-// ============================================
-async function loadFooter() {
-    try {
-        const response = await fetch('data/footer.json');
-        const data = await response.json();
-
-        // Set tagline
-        const taglineElement = document.getElementById('footer-tagline');
-        if (taglineElement) {
-            taglineElement.textContent = data.tagline;
-        }
-
-        // Render social links
-        const footerSocial = document.getElementById('footer-social');
-        if (footerSocial && data.socialLinks) {
-            footerSocial.innerHTML = data.socialLinks.map(link => `
-                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="${link.platform}">
-                    <i class="${link.icon}"></i>
-                </a>
-            `).join('');
-        }
-
-        // Set copyright
-        const copyrightElement = document.getElementById('footer-copyright');
-        if (copyrightElement) {
-            copyrightElement.textContent = data.copyright.text;
-        }
-
-        // Render footer links
-        const footerLinks = document.getElementById('footer-links');
-        if (footerLinks && data.links) {
-            footerLinks.innerHTML = data.links.map(link => `
-                <a href="${link.href}">${link.text}</a>
-            `).join('');
-        }
-    } catch (error) {
-        console.error('Error loading footer:', error);
-    }
-}
-
-// ============================================
-// Initialize Navigation
-// ============================================
-function initializeNavigation() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Mobile menu toggle
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // Close menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // Smooth scroll to sections
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// ============================================
-// Initialize Scroll Effects
-// ============================================
-function initializeScrollEffects() {
-    const navbar = document.getElementById('navbar');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        // Navbar scroll effect
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Active link highlighting
-        const sections = document.querySelectorAll('section[id]');
-        let currentSection = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// ============================================
-// Initialize Scroll Reveal Animation
-// ============================================
-function initializeScrollReveal() {
-    const revealElements = document.querySelectorAll('.section, .timeline-item, .skill-category, .project-card, .education-card, .certification-card');
-
-    const revealOnScroll = () => {
-        revealElements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('reveal', 'active');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
-}
-
-// ============================================
-// Initialize Back to Top Button
-// ============================================
-function initializeBackToTop() {
-    const backToTopButton = document.getElementById('back-to-top');
-
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-}
-
-// ============================================
-// Initialize Particles Background
-// ============================================
-function initializeParticles() {
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: ['#667eea', '#764ba2', '#f093fb']
-                },
-                shape: {
-                    type: 'circle'
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#667eea',
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'grab'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 0.5
-                        }
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    }
+    targets.forEach((el) => observer.observe(el));
 }

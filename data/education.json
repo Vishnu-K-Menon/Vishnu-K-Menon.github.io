@@ -1,60 +1,52 @@
 {
-  "_instructions": "Add your education and certifications here.",
-  "sectionTitle": "Education",
-  "certificationsTitle": "Certifications",
-  "education": [
+  "figure": "FIG. 04",
+  "sectionTitle": "Revision History",
+  "revisions": [
     {
-      "degree": "M.S. in Computer Science and Engineering",
+      "rev": "A",
+      "date": "2017 - 2021",
+      "description": "B.Tech. Electronics and Communication",
+      "org": "SCMS School of Engineering and Technology, Kerala",
+      "institution": "SCMS School of Engineering and Technology",
+      "note": "Degree"
+    },
+    {
+      "rev": "B",
+      "date": "2024 - 2026",
+      "description": "M.S. Computer Science and Engineering",
+      "org": "University at Buffalo, SUNY",
       "institution": "University at Buffalo, SUNY",
-      "period": "Aug 2024 – Jan 2026",
-      "description": "GPA: 3.53/4.0",
-      "icon": "fas fa-graduation-cap",
-      "color": "#B19CD9"
+      "note": "GPA 3.53"
     },
     {
-      "degree": "B.Tech. in Electronics and Communication",
-      "institution": "SCMS School of Engineering and Technology, Ernakulam, Kerala",
-      "period": "Sep 2017 – Jun 2021",
-      "description": "",
-      "icon": "fas fa-microchip",
-      "color": "#4ECDC4"
-    }
-  ],
-  "certifications": [
-    {
-      "title": "AWS Certified Machine Learning Engineer – Associate (MLA-C01)",
-      "issuer": "Amazon Web Services",
-      "date": "",
-      "icon": "fab fa-aws",
-      "color": "#FF9900"
+      "rev": "C",
+      "description": "AWS Certified Machine Learning Engineer – Associate (MLA-C01)",
+      "org": "AWS",
+      "note": "Certification"
     },
     {
-      "title": "AWS Certified AI Practitioner (AIF-C01)",
-      "issuer": "Amazon Web Services",
-      "date": "",
-      "icon": "fab fa-aws",
-      "color": "#FF9900"
+      "rev": "D",
+      "description": "AWS Certified AI Practitioner (AIF-C01)",
+      "org": "AWS",
+      "note": "Certification"
     },
     {
-      "title": "AWS SimuLearn: AI Practitioner",
-      "issuer": "Amazon Web Services · Training Badge",
-      "date": "",
-      "icon": "fas fa-award",
-      "color": "#FFE66D"
+      "rev": "E",
+      "description": "AWS SimuLearn: AI Practitioner",
+      "org": "AWS",
+      "note": "Training Badge"
     },
     {
-      "title": "Generative AI with LLMs, RAG",
-      "issuer": "DeepLearning.AI",
-      "date": "",
-      "icon": "fas fa-brain",
-      "color": "#FF6B6B"
+      "rev": "F",
+      "description": "Generative AI with LLMs, RAG",
+      "org": "DeepLearning.AI",
+      "note": "Course"
     },
     {
-      "title": "Claude Code 101, Introduction to MCP",
-      "issuer": "Anthropic",
-      "date": "",
-      "icon": "fas fa-robot",
-      "color": "#D97757"
+      "rev": "G",
+      "description": "Claude Code 101, Introduction to MCP",
+      "org": "Anthropic",
+      "note": "Course"
     }
   ]
 }

@@ -4,173 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vishnu Krishnakumar Menon - AI/ML Engineer with 4+ years building production LLM, RAG and machine learning systems at C3 AI, Glean and Accenture, specializing in AI reliability, LLM evaluation and scalable inference.">
-    <meta name="keywords" content="Vishnu Menon, Vishnu Krishnakumar Menon, AI/ML Engineer, LLM, RAG, LangGraph, LLM Evaluation, MLOps, Portfolio">
     <meta name="author" content="Vishnu Krishnakumar Menon">
-    <title>VISHNU MENON | AI/ML Engineer</title>
+    <meta name="theme-color" content="#0D3B66">
+    <title>Vishnu Menon | AI/ML Engineer</title>
     <link rel="canonical" href="https://vishnu-k-menon.github.io/">
-    <meta property="og:type" content="website">
     <meta property="og:url" content="https://vishnu-k-menon.github.io/">
-    <meta property="og:title" content="VISHNU MENON | AI/ML Engineer">
-    <meta property="og:description" content="Vishnu Krishnakumar Menon - AI/ML Engineer with 4+ years building production LLM, RAG and machine learning systems at C3 AI, Glean and Accenture, specializing in AI reliability, LLM evaluation and scalable inference.">
     <meta property="og:image" content="https://vishnu-k-menon.github.io/assets/images/vishnu-menon.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print" />
+    <script src="assets/js/enhance.js" defer></script>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
+
+    <a class="skip-link mono" href="#top">Skip to content ↓</a>
+
+    <!-- Drawing sheet border + registration marks (decoration only) -->
+    <div class="sheet-border" aria-hidden="true"></div>
+    <svg class="reg-mark reg-tl" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><line x1="12" y1="0" x2="12" y2="24"/><line x1="0" y1="12" x2="24" y2="12"/></svg>
+    <svg class="reg-mark reg-tr" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><line x1="12" y1="0" x2="12" y2="24"/><line x1="0" y1="12" x2="24" y2="12"/></svg>
+    <svg class="reg-mark reg-bl" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><line x1="12" y1="0" x2="12" y2="24"/><line x1="0" y1="12" x2="24" y2="12"/></svg>
+    <svg class="reg-mark reg-br" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><line x1="12" y1="0" x2="12" y2="24"/><line x1="0" y1="12" x2="24" y2="12"/></svg>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="#home" class="nav-brand" id="nav-brand"></a>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="nav-menu"></ul>
-            </div>
+    <nav class="navbar" id="navbar" aria-label="Primary" hidden>
+        <div class="nav-inner">
+            <a href="#top" class="brand">
+                <span class="brand-mark mono" id="brand-monogram">··</span>
+                <span class="brand-name" id="brand-name">Portfolio</span>
+                <span class="brand-dwg mono" id="brand-dwg"></span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu"></ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-layout">
-                    <div class="hero-copy">
-                        <p class="hero-greeting" id="hero-greeting"></p>
-                        <h1 class="hero-name" id="hero-name"></h1>
-                        <h2 class="hero-title" id="hero-title"></h2>
-                        <p class="hero-tagline" id="hero-tagline"></p>
-                        <p class="hero-summary" id="hero-summary"></p>
+    <main id="top" tabindex="-1">
 
-                        <div class="hero-social" id="hero-social"></div>
+        <!-- FIG. 00 — Hero -->
+        <section class="hero" id="hero" aria-label="Introduction" hidden>
+            <div class="container">
+                <p class="hero-dwg mono" id="hero-dwg"></p>
+
+                <div class="dim-wrap" id="dim-wrap">
+                    <div class="dim-bar" aria-hidden="true">
+                        <span class="dim-tick"></span><span class="dim-line dim-arrow-l"></span>
+                        <span class="dim-label mono" id="hero-figure"></span>
+                        <span class="dim-line dim-arrow-r"></span><span class="dim-tick"></span>
                     </div>
-
-                    <div class="hero-visual">
-                        <div class="portrait-orbit" aria-hidden="true"></div>
-                        <div class="portrait-frame">
-                            <img src="assets/images/vishnu-menon.jpg" alt="Vishnu Menon" width="720" height="720" fetchpriority="high" decoding="async">
-                        </div>
-                        <div class="portrait-badge" aria-hidden="true">
-                            <i class="fas fa-brain"></i>
-                        </div>
+                    <h1 class="hero-name" id="hero-name">&nbsp;</h1>
+                    <div class="dim-bar" aria-hidden="true">
+                        <span class="dim-tick"></span><span class="dim-line dim-arrow-l"></span>
+                        <span class="dim-label mono" id="hero-dim-label"></span>
+                        <span class="dim-line dim-arrow-r"></span><span class="dim-tick"></span>
                     </div>
                 </div>
 
-                <div class="hero-cta" id="hero-cta"></div>
+                <div class="hero-body">
+                    <div class="hero-text">
+                        <p class="hero-title" id="hero-title"></p>
 
-                <div class="hero-highlights" id="hero-highlights"></div>
+                        <div class="note-box reveal" id="hero-note">
+                            <span class="note-tab mono" id="hero-note-label"></span>
+                            <p id="hero-summary"></p>
+                        </div>
 
-                <div class="scroll-indicator" id="scroll-indicator">
-                    <span>Scroll to explore</span>
-                    <i class="fas fa-chevron-down"></i>
+                        <ul class="hero-meta" id="hero-meta"></ul>
+                        <div class="hero-cta" id="hero-cta"></div>
+                    </div>
+
+                    <!-- FIG. 00-A — Portrait (shown only when hero.photo is set) -->
+                    <figure class="hero-photo" id="hero-photo" hidden>
+                        <div class="photo-frame">
+                            <span class="crop crop-tl" aria-hidden="true"></span>
+                            <span class="crop crop-tr" aria-hidden="true"></span>
+                            <span class="crop crop-bl" aria-hidden="true"></span>
+                            <span class="crop crop-br" aria-hidden="true"></span>
+                            <img id="hero-photo-img" alt="" width="640" height="800" fetchpriority="high" decoding="async">
+                        </div>
+                        <div class="dim-bar" aria-hidden="true">
+                            <span class="dim-tick"></span><span class="dim-line dim-arrow-l"></span>
+                            <span class="dim-label mono" id="hero-photo-dim"></span>
+                            <span class="dim-line dim-arrow-r"></span><span class="dim-tick"></span>
+                        </div>
+                        <figcaption class="mono" id="hero-photo-caption"></figcaption>
+                    </figure>
+                </div>
+                <div class="hero-readouts" id="hero-readouts"></div>
+            </div>
+        </section>
+
+        <!-- General Notes — About -->
+        <section class="section" id="about" aria-labelledby="about-title" hidden>
+            <div class="container">
+                <header class="fig-head">
+                    <span class="fig-no mono" id="about-figure"></span>
+                    <h2 class="fig-title" id="about-title">General Notes</h2>
+                    <svg class="fig-rule" aria-hidden="true" viewBox="0 0 100 8" preserveAspectRatio="none"><line class="draw" x1="0" y1="4" x2="100" y2="4" pathLength="1"/></svg>
+                </header>
+                <div class="about-grid">
+                    <ol class="about-notes" id="about-notes"></ol>
+                    <dl class="about-specs" id="about-specs"></dl>
                 </div>
             </div>
-        </div>
-        <div class="hero-decoration">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section section">
-        <div class="container">
-            <h2 class="section-title" id="about-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text" id="about-text"></div>
-                <div class="about-stats" id="about-stats"></div>
+        <!-- FIG. 01 — Experience -->
+        <section class="section" id="experience" aria-labelledby="experience-title" hidden>
+            <div class="container">
+                <header class="fig-head">
+                    <span class="fig-no mono" id="experience-figure"></span>
+                    <h2 class="fig-title" id="experience-title">Service Record</h2>
+                    <svg class="fig-rule" aria-hidden="true" viewBox="0 0 100 8" preserveAspectRatio="none"><line class="draw" x1="0" y1="4" x2="100" y2="4" pathLength="1"/></svg>
+                </header>
+                <svg class="datum-strip" id="datum-strip" viewBox="0 0 1000 96" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+                <div class="role-grid" id="experience-list"></div>
             </div>
-            <div class="about-actions" id="about-actions"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section section">
-        <div class="container">
-            <h2 class="section-title" id="experience-title">Work Experience</h2>
-            <div class="timeline" id="experience-timeline"></div>
-        </div>
-    </section>
+        <!-- FIG. 02 — Projects -->
+        <section class="section" id="projects" aria-labelledby="projects-title" hidden>
+            <div class="container">
+                <header class="fig-head">
+                    <span class="fig-no mono" id="projects-figure"></span>
+                    <h2 class="fig-title" id="projects-title">Project Schematics</h2>
+                    <svg class="fig-rule" aria-hidden="true" viewBox="0 0 100 8" preserveAspectRatio="none"><line class="draw" x1="0" y1="4" x2="100" y2="4" pathLength="1"/></svg>
+                </header>
+                <div class="schematic-grid" id="projects-grid"></div>
+            </div>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section section">
-        <div class="container">
-            <h2 class="section-title" id="skills-title">Skills & Technologies</h2>
-            <div class="skills-grid" id="skills-grid"></div>
-        </div>
-    </section>
+        <!-- FIG. 03 — Skills -->
+        <section class="section" id="skills" aria-labelledby="skills-title" hidden>
+            <div class="container">
+                <header class="fig-head">
+                    <span class="fig-no mono" id="skills-figure"></span>
+                    <h2 class="fig-title" id="skills-title">Parts Schedule</h2>
+                    <svg class="fig-rule" aria-hidden="true" viewBox="0 0 100 8" preserveAspectRatio="none"><line class="draw" x1="0" y1="4" x2="100" y2="4" pathLength="1"/></svg>
+                </header>
+                <div class="table-scroll">
+                    <table class="bp-table" id="skills-table">
+                        <thead>
+                            <tr><th scope="col" class="mono">REF</th><th scope="col" class="mono">CATEGORY</th><th scope="col" class="mono">ITEMS</th><th scope="col" class="mono th-num">QTY</th></tr>
+                        </thead>
+                        <tbody id="skills-rows"></tbody>
+                    </table>
+                </div>
+                <p class="table-note mono" id="skills-note"></p>
+            </div>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section section">
-        <div class="container">
-            <h2 class="section-title" id="projects-title">Featured Projects</h2>
-            <div class="projects-grid" id="projects-grid"></div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education-section section">
-        <div class="container">
-            <h2 class="section-title" id="education-title">Education</h2>
-            <div class="education-grid" id="education-grid"></div>
-
-            <h3 class="subsection-title" id="certifications-title">Certifications & Awards</h3>
-            <div class="certifications-grid" id="certifications-grid"></div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section section">
-        <div class="container">
-            <h2 class="section-title" id="contact-title">Get In Touch</h2>
-            <p class="section-subtitle" id="contact-subtitle"></p>
-
-            <div class="contact-wrapper">
-                <div class="contact-info" id="contact-info"></div>
-                <div class="contact-form-wrapper">
-                    <form id="contact-form" class="contact-form"></form>
+        <!-- FIG. 04 — Education & Certifications -->
+        <section class="section" id="education" aria-labelledby="education-title" hidden>
+            <div class="container">
+                <header class="fig-head">
+                    <span class="fig-no mono" id="education-figure"></span>
+                    <h2 class="fig-title" id="education-title">Revision History</h2>
+                    <svg class="fig-rule" aria-hidden="true" viewBox="0 0 100 8" preserveAspectRatio="none"><line class="draw" x1="0" y1="4" x2="100" y2="4" pathLength="1"/></svg>
+                </header>
+                <div class="table-scroll">
+                    <table class="bp-table" id="education-table">
+                        <thead>
+                            <tr><th scope="col" class="mono">REV</th><th scope="col" class="mono">DATE</th><th scope="col" class="mono">DESCRIPTION</th><th scope="col" class="mono">ISSUED BY</th><th scope="col" class="mono">NOTE</th></tr>
+                        </thead>
+                        <tbody id="education-rows"></tbody>
+                    </table>
                 </div>
             </div>
+        </section>
 
-            <div class="contact-social" id="contact-social"></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-tagline" id="footer-tagline"></p>
-                <div class="footer-social" id="footer-social"></div>
-                <p class="footer-copyright" id="footer-copyright"></p>
-                <div class="footer-links" id="footer-links"></div>
+        <!-- FIG. 05 — Contact -->
+        <section class="section" id="contact" aria-labelledby="contact-title" hidden>
+            <div class="container">
+                <header class="fig-head">
+                    <span class="fig-no mono" id="contact-figure"></span>
+                    <h2 class="fig-title" id="contact-title">Contact Detail</h2>
+                    <svg class="fig-rule" aria-hidden="true" viewBox="0 0 100 8" preserveAspectRatio="none"><line class="draw" x1="0" y1="4" x2="100" y2="4" pathLength="1"/></svg>
+                </header>
+                <p class="contact-sub" id="contact-subtitle"></p>
+                <div class="email-row" id="email-row">
+                    <a class="contact-email" id="contact-email" href="#contact">&nbsp;</a>
+                    <span class="email-hint mono" id="email-hint" aria-hidden="true"></span>
+                </div>
+                <div class="contact-grid" id="contact-grid"></div>
+                <ul class="contact-channels" id="contact-channels"></ul>
             </div>
-            <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-                <i class="fas fa-chevron-up"></i>
-            </button>
+        </section>
+
+    </main>
+
+    <!-- Title block footer -->
+    <footer class="footer" id="footer" hidden>
+        <div class="container footer-inner">
+            <div class="footer-colophon">
+                <p class="mono" id="footer-credit"></p>
+                <p class="mono" id="footer-copyright"></p>
+            </div>
+            <div class="title-block mono" id="title-block" aria-label="Drawing title block"></div>
         </div>
     </footer>
 
-    <!-- Particles.js Library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-    <!-- Custom JavaScript -->
-    <script src="assets/js/main.js?v=1"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

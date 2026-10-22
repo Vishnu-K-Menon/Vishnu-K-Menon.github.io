@@ -7,8 +7,8 @@ Live at **https://vishnu-k-menon.github.io**
 ## Structure
 
 - `index.html` – page shell
-- `data/*.json` – all content (hero, about, experience, skills, projects, education, contact)
-- `assets/css/styles.css`, `assets/js/main.js` – styling and rendering
+- `data/*.json` – all content (hero, about, experience, projects, skills, education, contact, footer)
+- `assets/css/styles.css`, `assets/js/main.js` – Blueprint theme styling and rendering
 - `assets/images/` – headshot, company logos, project thumbnails
 - `assets/files/` – resume
 

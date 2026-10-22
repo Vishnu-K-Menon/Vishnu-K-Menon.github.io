@@ -1,31 +1,16 @@
 {
-  "_instructions": "Footer section.",
-  "copyright": {
-    "text": "© 2026 VISHNU MENON. All rights reserved.",
-    "year": "2026",
-    "name": "VISHNU MENON"
+  "titleBlock": {
+    "project": "Vishnu Krishnakumar Menon — Portfolio Drawing Set",
+    "drawnBy": "Vishnu Krishnakumar Menon",
+    "role": "AI/ML Engineer",
+    "location": "Buffalo, NY",
+    "email": "vishnumenon@myworkgmail.com",
+    "drawingNumber": "DWG-VKM-2026",
+    "revision": "REV 2026",
+    "sheet": "SHEET 01 OF 01",
+    "scale": "SCALE 1:1"
   },
-  "tagline": "Building AI systems you can trust",
-  "links": [],
-  "socialLinks": [
-    {
-      "platform": "GitHub",
-      "url": "https://github.com/Vishnu-K-Menon",
-      "icon": "fab fa-github"
-    },
-    {
-      "platform": "LinkedIn",
-      "url": "https://www.linkedin.com/in/vkm47",
-      "icon": "fab fa-linkedin"
-    },
-    {
-      "platform": "Email",
-      "url": "mailto:vishnumenon@myworkgmail.com",
-      "icon": "fas fa-envelope"
-    }
-  ],
-  "backToTop": {
-    "text": "Back to Top",
-    "icon": "fas fa-chevron-up"
-  }
+  "credit": "Drawn & engineered by Vishnu Krishnakumar Menon",
+  "copyright": "© 2026 Vishnu Krishnakumar Menon. All rights reserved.",
+  "githubUsername": "Vishnu-K-Menon"
 }

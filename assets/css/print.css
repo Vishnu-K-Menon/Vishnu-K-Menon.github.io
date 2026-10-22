@@ -1,0 +1,57 @@
+/* Launchfolio shared print stylesheet — the portfolio prints as an
+   ink-friendly résumé document. Loaded with media="print". */
+* {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  animation: none !important;
+  transition: none !important;
+  float: none !important;
+}
+section, article {
+  content-visibility: visible !important;
+  contain: none !important;
+}
+nav,
+button,
+[data-lf-skip],
+[data-lf-toast],
+.skip-link,
+[class*="cta"],
+[class*="ticker"],
+[class*="marquee"],
+[class*="scroll-indicator"],
+[aria-hidden="true"] {
+  display: none !important;
+}
+body {
+  font-size: 11pt !important;
+  line-height: 1.45 !important;
+}
+main, section {
+  padding: 0 0 12pt !important;
+  margin: 0 !important;
+  max-width: none !important;
+  min-height: 0 !important;
+}
+h1 { font-size: 22pt !important; }
+h2 { font-size: 14pt !important; margin: 14pt 0 6pt !important; }
+h3 { font-size: 12pt !important; }
+h1, h2, h3 { page-break-after: avoid; }
+article, li, tr, dl {
+  break-inside: avoid;
+}
+a {
+  text-decoration: none !important;
+}
+main a[href^="http"]::after,
+section a[href^="http"]::after {
+  content: " (" attr(href) ")";
+  font-size: 8pt;
+  color: #555555 !important;
+  word-break: break-all;
+}
+img, svg {
+  max-height: 2in;
+}

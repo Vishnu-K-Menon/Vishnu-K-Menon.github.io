@@ -1,63 +1,74 @@
 {
-  "_instructions": "Hero section content.",
-  "greeting": "Hi, I'm",
-  "name": "VISHNU MENON",
+  "drawingNumber": "DWG-VKM-2026 · SHEET 01",
+  "figure": "FIG. 00",
+  "figureLabel": "Principal",
+  "name": "Vishnu Menon",
   "title": "AI/ML Engineer · LLM Evaluation & AI Reliability",
-  "summary": "AI/ML Engineer with 4+ years building production machine learning and generative AI systems at C3 AI, Glean and Accenture. I build reliable, evaluation-driven AI: multi-agent workflows, hallucination detection, self-verifying RAG pipelines and model-serving platforms that handle 1M+ daily requests at 99.9% uptime.",
-  "avatarUrl": "/avatar.png",
-  "tagline": "LLMs • RAG • LangGraph • Fine-Tuning • MLOps • AWS",
-  "highlights": [
+  "dimensionLabel": "L = 12 CH — SCALE 1:1",
+  "summaryLabel": "NOTE 00",
+  "summary": "AI/ML Engineer with 4+ years building production machine learning and generative AI systems at C3 AI, Glean and Accenture. I specialize in AI reliability, LLM evaluation and scalable inference: multi-agent workflows, hallucination detection, self-verifying RAG pipelines and model-serving platforms that handle 1M+ daily requests at 99.9% uptime.",
+  "photo": {
+    "src": "assets/images/vishnu-menon.jpg",
+    "alt": "Portrait of Vishnu Menon",
+    "dimensionLabel": "FIG. 00-A",
+    "caption": "Principal · Buffalo, NY"
+  },
+  "meta": [
     {
-      "icon": "fas fa-briefcase",
-      "text": "4+ Years Experience",
-      "color": "#FF6B6B"
+      "label": "Location",
+      "value": "Buffalo, NY"
     },
     {
-      "icon": "fas fa-bolt",
-      "text": "1M+ Daily Requests Served",
-      "color": "#4ECDC4"
+      "label": "Email",
+      "value": "vishnumenon@myworkgmail.com",
+      "href": "mailto:vishnumenon@myworkgmail.com"
     },
     {
-      "icon": "fab fa-aws",
-      "text": "AWS Certified ML Engineer",
-      "color": "#FFE66D"
+      "label": "GitHub",
+      "value": "Vishnu-K-Menon",
+      "href": "https://github.com/Vishnu-K-Menon"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "in/vkm47",
+      "href": "https://www.linkedin.com/in/vkm47"
     }
   ],
   "cta": {
     "buttons": [
       {
-        "text": "Get In Touch",
-        "href": "#contact",
-        "type": "primary",
-        "external": false
+        "text": "View Figures",
+        "href": "#projects",
+        "type": "primary"
       },
       {
-        "text": "View My Work",
-        "href": "#projects",
-        "type": "secondary",
-        "external": false
+        "text": "Resume",
+        "href": "assets/files/Vishnu-Menon-Resume.pdf",
+        "type": "secondary"
+      },
+      {
+        "text": "Contact",
+        "href": "#contact",
+        "type": "secondary"
       }
     ]
   },
-  "socialLinks": [
+  "readouts": [
     {
-      "platform": "GitHub",
-      "url": "https://github.com/Vishnu-K-Menon",
-      "icon": "fab fa-github"
+      "value": "4+",
+      "label": "Yrs Service"
     },
     {
-      "platform": "LinkedIn",
-      "url": "https://www.linkedin.com/in/vkm47",
-      "icon": "fab fa-linkedin"
+      "value": "1M+",
+      "label": "Daily Requests"
     },
     {
-      "platform": "Email",
-      "url": "mailto:vishnumenon@myworkgmail.com",
-      "icon": "fas fa-envelope"
+      "value": "50M+",
+      "label": "Docs Indexed"
+    },
+    {
+      "value": "99.9%",
+      "label": "Uptime"
     }
-  ],
-  "scrollIndicator": {
-    "text": "Scroll to explore",
-    "icon": "fas fa-chevron-down"
-  }
+  ]
 }

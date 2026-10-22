@@ -1,44 +1,33 @@
 {
-  "_instructions": "Configure your navigation menu.",
   "brand": {
-    "name": "VISHNU MENON",
-    "href": "#home"
+    "name": "Vishnu Menon",
+    "monogram": "VM",
+    "drawingNumber": "DWG-VKM-2026"
   },
   "menuItems": [
     {
-      "text": "Home",
-      "href": "#hero",
-      "icon": "fas fa-home"
+      "text": "Notes",
+      "href": "#about"
     },
     {
-      "text": "About",
-      "href": "#about",
-      "icon": "fas fa-user"
+      "text": "Service",
+      "href": "#experience"
     },
     {
-      "text": "Experience",
-      "href": "#experience",
-      "icon": "fas fa-briefcase"
+      "text": "Works",
+      "href": "#projects"
     },
     {
-      "text": "Skills",
-      "href": "#skills",
-      "icon": "fas fa-code"
+      "text": "Parts",
+      "href": "#skills"
     },
     {
-      "text": "Projects",
-      "href": "#projects",
-      "icon": "fas fa-rocket"
-    },
-    {
-      "text": "Education",
-      "href": "#education",
-      "icon": "fas fa-graduation-cap"
+      "text": "Revisions",
+      "href": "#education"
     },
     {
       "text": "Contact",
-      "href": "#contact",
-      "icon": "fas fa-envelope"
+      "href": "#contact"
     }
   ]
 }

@@ -1,12 +1,12 @@
 {
-  "_instructions": "Organize your skills with vibrant colors.",
-  "sectionTitle": "Skills & Technologies",
-  "categories": [
+  "figure": "FIG. 03",
+  "sectionTitle": "Parts Schedule",
+  "note": "68 PARTS ON RECORD — USED IN PRODUCTION AND PROJECT WORK",
+  "rows": [
     {
+      "ref": "P-01",
       "category": "Generative & Agentic AI",
-      "icon": "fas fa-robot",
-      "color": "#B19CD9",
-      "skills": [
+      "items": [
         "LLMs",
         "LangChain",
         "LangGraph",
@@ -16,13 +16,13 @@
         "Model Context Protocol (MCP)",
         "Multi-Agent Workflows",
         "Structured Outputs"
-      ]
+      ],
+      "qty": "09"
     },
     {
+      "ref": "P-02",
       "category": "LLM Evaluation & AI Reliability",
-      "icon": "fas fa-shield-halved",
-      "color": "#FF6B6B",
-      "skills": [
+      "items": [
         "Hallucination Detection",
         "Faithfulness Evaluation",
         "Claim Verification",
@@ -31,13 +31,13 @@
         "Guardrails",
         "Retrieval Quality Evaluation",
         "Model Regression Testing"
-      ]
+      ],
+      "qty": "08"
     },
     {
+      "ref": "P-03",
       "category": "RAG & Vector Search",
-      "icon": "fas fa-magnifying-glass",
-      "color": "#4ECDC4",
-      "skills": [
+      "items": [
         "Retrieval-Augmented Generation",
         "OpenSearch",
         "ChromaDB",
@@ -46,13 +46,13 @@
         "Embeddings",
         "Retrieval Optimization",
         "Reranking"
-      ]
+      ],
+      "qty": "08"
     },
     {
+      "ref": "P-04",
       "category": "Machine Learning & Deep Learning",
-      "icon": "fas fa-brain",
-      "color": "#FFE66D",
-      "skills": [
+      "items": [
         "PyTorch",
         "TensorFlow",
         "Hugging Face Transformers",
@@ -61,18 +61,17 @@
         "Random Forest",
         "BERT",
         "NLP",
-        "Model Fine-Tuning",
+        "Fine-Tuning",
         "QLoRA",
         "DPO",
-        "A/B Testing",
-        "Feature Engineering"
-      ]
+        "A/B Testing"
+      ],
+      "qty": "12"
     },
     {
+      "ref": "P-05",
       "category": "MLOps & Deployment",
-      "icon": "fas fa-gears",
-      "color": "#A8DADC",
-      "skills": [
+      "items": [
         "Docker",
         "Kubernetes",
         "OpenShift",
@@ -84,15 +83,13 @@
         "Model Registry",
         "Model Serving",
         "Inference Optimization"
-      ]
+      ],
+      "qty": "11"
     },
     {
-      "category": "Cloud, Data & Observability",
-      "icon": "fas fa-cloud",
-      "color": "#FF8B94",
-      "skills": [
-        "AWS (S3, EC2, SageMaker, Lambda)",
-        "Azure ML",
+      "ref": "P-06",
+      "category": "Data Engineering",
+      "items": [
         "Python",
         "SQL",
         "PySpark",
@@ -100,14 +97,35 @@
         "Apache Airflow",
         "AWS Glue",
         "Docling",
+        "ETL/ELT"
+      ],
+      "qty": "08"
+    },
+    {
+      "ref": "P-07",
+      "category": "Cloud & Databases",
+      "items": [
+        "AWS (S3, EC2, SageMaker, Lambda, CloudWatch)",
+        "Azure ML",
+        "AKS",
         "PostgreSQL",
+        "MySQL",
         "MongoDB",
-        "Redshift",
+        "Redshift"
+      ],
+      "qty": "07"
+    },
+    {
+      "ref": "P-08",
+      "category": "Observability",
+      "items": [
         "OpenTelemetry",
         "Arize Phoenix",
         "Prometheus",
-        "Grafana"
-      ]
+        "Grafana",
+        "Distributed Tracing"
+      ],
+      "qty": "05"
     }
   ]
 }
