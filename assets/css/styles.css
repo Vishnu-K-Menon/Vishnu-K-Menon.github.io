@@ -1413,6 +1413,11 @@ html.motion-ok .draw.revealed {
    Portfolio additions — portrait (FIG. 00-A), role logos, project figures
    ========================================================================== */
 
+/* Three-word full name: a smaller cap keeps "Vishnu Krishnakumar" on one line */
+.hero-name {
+    font-size: clamp(3rem, 6vw, 5.2rem);
+}
+
 .hero-body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 320px;
@@ -1525,6 +1530,11 @@ html.motion-ok .draw.revealed {
 }
 
 .schematic-points li { font-size: 0.88rem; }
+
+/* The full name needs the drawing-number slot back before the menu collapses */
+@media (max-width: 1180px) and (min-width: 861px) {
+    .brand-dwg { display: none; }
+}
 
 @media (max-width: 900px) {
     .hero-body { grid-template-columns: 1fr; gap: 12px; }

@@ -2,14 +2,14 @@
   "drawingNumber": "DWG-VKM-2026 · SHEET 01",
   "figure": "FIG. 00",
   "figureLabel": "Principal",
-  "name": "Vishnu Menon",
+  "name": "Vishnu Krishnakumar Menon",
   "title": "AI/ML Engineer · LLM Evaluation & AI Reliability",
-  "dimensionLabel": "L = 12 CH — SCALE 1:1",
+  "dimensionLabel": "L = 25 CH — SCALE 1:1",
   "summaryLabel": "NOTE 00",
   "summary": "AI/ML Engineer with 4+ years of experience developing production machine learning and generative AI systems, specializing in AI reliability, LLM evaluation, and scalable inference infrastructure. Experienced in architecting multi-agent workflows, hallucination detection systems, self-verifying RAG pipelines, and enterprise model-serving platforms supporting 1M+ daily requests at 99.9% uptime.",
   "photo": {
     "src": "assets/images/vishnu-menon.jpg",
-    "alt": "Portrait of Vishnu Menon",
+    "alt": "Portrait of Vishnu Krishnakumar Menon",
     "dimensionLabel": "FIG. 00-A",
     "caption": "Principal · Buffalo, NY"
   },
