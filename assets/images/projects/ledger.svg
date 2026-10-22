@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="LEDGER illustration: an answer split into claims, each checked against source evidence">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060917"/><stop offset="1" stop-color="#10213a"/></linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.4" r="0.6"><stop offset="0" stop-color="#38d9a9" stop-opacity="0.22"/><stop offset="1" stop-color="#38d9a9" stop-opacity="0"/></radialGradient>
+<radialGradient id="glow2" cx="0.05" cy="1" r="0.7"><stop offset="0" stop-color="#4facfe" stop-opacity="0.16"/><stop offset="1" stop-color="#4facfe" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#fff" stroke-opacity="0.045"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#38d9a9"/></marker>
+</defs>
+<rect width="640" height="360" fill="url(#bg)"/>
+<rect width="640" height="360" fill="url(#grid)"/>
+<rect width="640" height="360" fill="url(#glow)"/>
+<rect width="640" height="360" fill="url(#glow2)"/>
+<g font-family="'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<!-- Generated answer split into claims -->
+<rect x="32" y="40" width="300" height="270" rx="12" fill="#fff" fill-opacity="0.045" stroke="#fff" stroke-opacity="0.12"/>
+<text x="50" y="64" font-size="8" font-weight="800" letter-spacing="1.4" fill="#38d9a9">ANSWER → ATOMIC CLAIMS</text>
+<g>
+<rect x="50" y="80" width="264" height="44" rx="8" fill="#38d9a9" fill-opacity="0.08" stroke="#38d9a9" stroke-opacity="0.5"/>
+<text x="64" y="98" font-size="9" font-weight="600" fill="#e6edf3">FY2025 outlays: $6.75 trillion</text>
+<text x="64" y="113" font-size="7" fill="#dbe3e7" fill-opacity="0.55">evidence · Table B-22, row 14</text>
+<circle cx="292" cy="102" r="11" fill="#38d9a9"/><path d="M286.5 102l4 4 7-8" fill="none" stroke="#06231b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g>
+<rect x="50" y="134" width="264" height="44" rx="8" fill="#38d9a9" fill-opacity="0.08" stroke="#38d9a9" stroke-opacity="0.5"/>
+<text x="64" y="152" font-size="9" font-weight="600" fill="#e6edf3">Units: billions of dollars</text>
+<text x="64" y="167" font-size="7" fill="#dbe3e7" fill-opacity="0.55">evidence · table header</text>
+<circle cx="292" cy="156" r="11" fill="#38d9a9"/><path d="M286.5 156l4 4 7-8" fill="none" stroke="#06231b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g>
+<rect x="50" y="188" width="264" height="44" rx="8" fill="#ff6b6b" fill-opacity="0.08" stroke="#ff6b6b" stroke-opacity="0.55" stroke-dasharray="5 4"/>
+<text x="64" y="206" font-size="9" font-weight="600" fill="#e6edf3">Up 9% from fiscal year 2023</text>
+<text x="64" y="221" font-size="7" fill="#ff8b94">unsupported · send to repair</text>
+<circle cx="292" cy="210" r="11" fill="#ff6b6b"/><path d="M287.5 205.5l9 9M296.5 205.5l-9 9" stroke="#2a0b0b" stroke-width="2.4" stroke-linecap="round"/>
+</g>
+<g>
+<rect x="50" y="242" width="264" height="44" rx="8" fill="#FFE66D" fill-opacity="0.07" stroke="#FFE66D" stroke-opacity="0.5"/>
+<text x="64" y="260" font-size="9" font-weight="600" fill="#e6edf3">Rewritten: up 4.1% from FY2024</text>
+<text x="64" y="275" font-size="7" fill="#FFE66D" fill-opacity="0.85">repaired · re-verified</text>
+<path d="M285 268a8 8 0 1 1 3 4" fill="none" stroke="#FFE66D" stroke-width="2.2" stroke-linecap="round"/><path d="M283 268l3 4 3-3" fill="none" stroke="#FFE66D" stroke-width="2" stroke-linecap="round"/>
+</g>
+<!-- Arrow to evidence -->
+<path d="M338 175 H372" stroke="#38d9a9" stroke-width="1.8" marker-end="url(#arr)"/>
+<!-- Source evidence table -->
+<rect x="382" y="40" width="226" height="168" rx="12" fill="#fff" fill-opacity="0.045" stroke="#fff" stroke-opacity="0.12"/>
+<text x="398" y="64" font-size="8" font-weight="800" letter-spacing="1.4" fill="#4facfe">SOURCE EVIDENCE · PDF TABLE</text>
+<g font-size="7" fill="#dbe3e7">
+<rect x="398" y="76" width="194" height="18" fill="#4facfe" fill-opacity="0.14"/>
+<text x="404" y="88" font-weight="700">Item</text><text x="508" y="88" font-weight="700" text-anchor="end">FY24</text><text x="584" y="88" font-weight="700" text-anchor="end">FY25</text>
+<text x="404" y="108" fill-opacity="0.7">Receipts</text><text x="508" y="108" text-anchor="end" fill-opacity="0.7">4,918</text><text x="584" y="108" text-anchor="end" fill-opacity="0.7">5,234</text>
+<rect x="398" y="114" width="194" height="18" fill="#38d9a9" fill-opacity="0.16" stroke="#38d9a9" stroke-opacity="0.6"/>
+<text x="404" y="126" font-weight="700" fill="#38d9a9">Outlays</text><text x="508" y="126" text-anchor="end">6,486</text><text x="584" y="126" text-anchor="end" font-weight="700" fill="#38d9a9">6,752</text>
+<text x="404" y="146" fill-opacity="0.7">Deficit</text><text x="508" y="146" text-anchor="end" fill-opacity="0.7">1,568</text><text x="584" y="146" text-anchor="end" fill-opacity="0.7">1,518</text>
+<text x="404" y="164" fill-opacity="0.7">Debt held</text><text x="508" y="164" text-anchor="end" fill-opacity="0.7">28,252</text><text x="584" y="164" text-anchor="end" fill-opacity="0.7">30,103</text>
+<path d="M398 98H592M398 136H592M398 154H592" stroke="#fff" stroke-opacity="0.07"/>
+</g>
+<text x="398" y="192" font-size="7" fill="#dbe3e7" fill-opacity="0.5">rebuilt from the PDF text layer · illustrative values</text>
+<!-- Metric -->
+<rect x="382" y="222" width="226" height="88" rx="12" fill="#38d9a9" fill-opacity="0.08" stroke="#38d9a9" stroke-opacity="0.35"/>
+<text x="398" y="244" font-size="8" font-weight="800" letter-spacing="1.4" fill="#38d9a9">TABLE-CELL ACCURACY</text>
+<text x="398" y="284" font-size="26" font-weight="800" fill="#dbe3e7" fill-opacity="0.55">30.5%</text>
+<path d="M484 275 H510" stroke="#38d9a9" stroke-width="2" marker-end="url(#arr)"/>
+<text x="520" y="286" font-size="30" font-weight="800" fill="#38d9a9">100%</text>
+<text x="398" y="300" font-size="7" fill="#dbe3e7" fill-opacity="0.55">held-out Economic Report of the President tables</text>
+</g>
+<text x="32" y="336" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="800" letter-spacing="2" fill="#fff" fill-opacity="0.85">LEDGER</text>
+<text x="88" y="336" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="8" fill="#dbe3e7" fill-opacity="0.5">Self-verifying RAG · claim-level verification and repair</text>
+</svg>

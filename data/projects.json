@@ -1,0 +1,81 @@
+{
+  "_instructions": "Add your projects.",
+  "sectionTitle": "Featured Work",
+  "projects": [
+    {
+      "title": "LEDGER: Self-Verifying RAG",
+      "description": "Question answering over U.S. federal budget and energy reports that splits each answer into atomic claims, checks every claim against retrieved source evidence with a local 7–8B model, and rewrites or removes unsupported statements. A fix for a Docling table-parsing defect, rebuilding tables from the PDF text layer, raised held-out table-cell accuracy from 30.5% to 100%. Traced with OpenTelemetry and Arize Phoenix on AWS EC2, with automated tests in GitHub Actions CI.",
+      "category": "AI Reliability",
+      "technologies": [
+        "Python",
+        "Docling",
+        "Qdrant",
+        "OpenTelemetry",
+        "Arize Phoenix",
+        "AWS EC2",
+        "GitHub Actions"
+      ],
+      "icon": "fas fa-scale-balanced",
+      "color": "#38d9a9",
+      "image": "assets/images/projects/ledger.svg",
+      "featured": true,
+      "links": {
+        "github": "https://github.com/Vishnu-K-Menon/LEDGER"
+      },
+      "stats": {
+        "status": "In Progress",
+        "year": "2026"
+      }
+    },
+    {
+      "title": "TheraMind: Dual-Mode Clinical LLM Agent",
+      "description": "Clinical LLM agent fine-tuned from Llama 3.2-3B with QLoRA and DPO on 9,250 clinical dialogues, improving ROUGE-L from 0.40 to 0.78 in a 19.5-minute training run on an RTX 4090. One model runs a patient-intake chat, then writes a structured SOAP note for the doctor, grounded by ChromaDB RAG, constrained decoding and emergency-symptom overrides. Served with FastAPI in Docker on Hugging Face Spaces.",
+      "category": "LLM Fine-Tuning",
+      "technologies": [
+        "Llama 3.2-3B",
+        "QLoRA",
+        "DPO",
+        "ChromaDB",
+        "FastAPI",
+        "Docker"
+      ],
+      "icon": "fas fa-user-doctor",
+      "color": "#B19CD9",
+      "image": "assets/images/projects/theramind.svg",
+      "featured": true,
+      "links": {
+        "github": "https://github.com/Vishnu-K-Menon/TheraMind",
+        "demo": "https://vkm47-theramind-ai.hf.space/"
+      },
+      "stats": {
+        "status": "Live",
+        "year": "2026"
+      }
+    },
+    {
+      "title": "BreachLens: Breach Notification Pipeline",
+      "description": "Python and KNIME pipeline that extracts PII/PHI from synthetic breach documents (PDFs, scanned forms and messy Excel/CSV exports), validates it with about 60 reason codes, verifies addresses with the U.S. Census geocoder, and matches people across files into one privacy-safe notification list per state. Matched the ground truth exactly (155/155) and processes 50,000 rows in about 39 seconds; raw identifiers never reach an output file.",
+      "category": "Data Engineering",
+      "technologies": [
+        "Python",
+        "pandas",
+        "KNIME",
+        "DuckDB",
+        "SQL",
+        "Tesseract OCR",
+        "Excel"
+      ],
+      "icon": "fas fa-user-shield",
+      "color": "#667eea",
+      "image": "assets/images/projects/breachlens.svg",
+      "featured": true,
+      "links": {
+        "github": "https://github.com/Vishnu-K-Menon/BreachLens"
+      },
+      "stats": {
+        "status": "Completed",
+        "year": "2026"
+      }
+    }
+  ]
+}

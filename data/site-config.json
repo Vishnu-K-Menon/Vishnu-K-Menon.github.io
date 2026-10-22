@@ -1,0 +1,26 @@
+{
+  "_instructions": "Site-wide configuration and meta tags.",
+  "title": "Vishnu Menon | AI/ML Engineer",
+  "description": "Vishnu Krishnakumar Menon - AI/ML Engineer | Portfolio",
+  "author": "Vishnu Krishnakumar Menon",
+  "keywords": "AI/ML Engineer, LLM, RAG, Portfolio, Vishnu Menon",
+  "siteName": "Vishnu Menon",
+  "siteTitle": "Vishnu Menon | AI/ML Engineer",
+  "meta": {
+    "title": "Vishnu Menon | AI/ML Engineer",
+    "description": "Vishnu Krishnakumar Menon - AI/ML Engineer | Portfolio",
+    "author": "Vishnu Krishnakumar Menon",
+    "keywords": "AI/ML Engineer, LLM, RAG, Portfolio, Vishnu Menon"
+  },
+  "branding": {
+    "name": "Vishnu Menon",
+    "tagline": "AI/ML Engineer",
+    "logo": "/logo.png"
+  },
+  "settings": {
+    "year": 2026,
+    "enableAnimations": true,
+    "enableParticles": true,
+    "navbarScrollEffect": true
+  }
+}

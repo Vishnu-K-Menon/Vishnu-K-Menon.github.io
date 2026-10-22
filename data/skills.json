@@ -1,0 +1,113 @@
+{
+  "_instructions": "Organize your skills with vibrant colors.",
+  "sectionTitle": "Skills & Technologies",
+  "categories": [
+    {
+      "category": "Generative & Agentic AI",
+      "icon": "fas fa-robot",
+      "color": "#B19CD9",
+      "skills": [
+        "LLMs",
+        "LangChain",
+        "LangGraph",
+        "AI Orchestration",
+        "Prompt Engineering",
+        "Tool Calling",
+        "Model Context Protocol (MCP)",
+        "Multi-Agent Workflows",
+        "Structured Outputs"
+      ]
+    },
+    {
+      "category": "LLM Evaluation & AI Reliability",
+      "icon": "fas fa-shield-halved",
+      "color": "#FF6B6B",
+      "skills": [
+        "Hallucination Detection",
+        "Faithfulness Evaluation",
+        "Claim Verification",
+        "Groundedness Evaluation",
+        "Prompt Regression Testing",
+        "Guardrails",
+        "Retrieval Quality Evaluation",
+        "Model Regression Testing"
+      ]
+    },
+    {
+      "category": "RAG & Vector Search",
+      "icon": "fas fa-magnifying-glass",
+      "color": "#4ECDC4",
+      "skills": [
+        "Retrieval-Augmented Generation",
+        "OpenSearch",
+        "ChromaDB",
+        "Qdrant",
+        "Semantic Search",
+        "Embeddings",
+        "Retrieval Optimization",
+        "Reranking"
+      ]
+    },
+    {
+      "category": "Machine Learning & Deep Learning",
+      "icon": "fas fa-brain",
+      "color": "#FFE66D",
+      "skills": [
+        "PyTorch",
+        "TensorFlow",
+        "Hugging Face Transformers",
+        "Scikit-learn",
+        "XGBoost",
+        "Random Forest",
+        "BERT",
+        "NLP",
+        "Model Fine-Tuning",
+        "QLoRA",
+        "DPO",
+        "A/B Testing",
+        "Feature Engineering"
+      ]
+    },
+    {
+      "category": "MLOps & Deployment",
+      "icon": "fas fa-gears",
+      "color": "#A8DADC",
+      "skills": [
+        "Docker",
+        "Kubernetes",
+        "OpenShift",
+        "Terraform",
+        "MLflow",
+        "FastAPI",
+        "CI/CD",
+        "GitHub Actions",
+        "Model Registry",
+        "Model Serving",
+        "Inference Optimization"
+      ]
+    },
+    {
+      "category": "Cloud, Data & Observability",
+      "icon": "fas fa-cloud",
+      "color": "#FF8B94",
+      "skills": [
+        "AWS (S3, EC2, SageMaker, Lambda)",
+        "Azure ML",
+        "Python",
+        "SQL",
+        "PySpark",
+        "Pandas",
+        "Apache Airflow",
+        "AWS Glue",
+        "Docling",
+        "PostgreSQL",
+        "MongoDB",
+        "Redshift",
+        "OpenTelemetry",
+        "Arize Phoenix",
+        "Prometheus",
+        "Grafana"
+      ]
+    }
+  ]
+}

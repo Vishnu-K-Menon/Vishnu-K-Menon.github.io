@@ -1,0 +1,41 @@
+{
+  "_instructions": "About section.",
+  "sectionTitle": "About Me",
+  "image": "assets/images/vishnu-menon.jpg",
+  "paragraphs": [
+    "AI/ML Engineer with 4+ years of experience developing production machine learning and generative AI systems, specializing in AI reliability, LLM evaluation and scalable inference infrastructure.",
+    "At C3 AI I architect a multi-tenant LLM and RAG inference platform for 20+ enterprise deployments, design LangGraph orchestration workflows with automated validation gates, and run evaluation and drift monitoring that catches model regressions 4x faster. Before that I tuned semantic ranking and RAG retrieval for enterprise search at Glean, and shipped forecasting, NLP and recommendation models at Accenture.",
+    "I care about AI systems you can trust: answers checked claim by claim against their sources, fine-tuned models aligned with preference data, and results backed by evaluations defined before the run. I hold an M.S. in Computer Science and Engineering from the University at Buffalo."
+  ],
+  "statistics": [
+    {
+      "icon": "fas fa-briefcase",
+      "value": "4+",
+      "label": "Years Experience",
+      "color": "#FF6B6B"
+    },
+    {
+      "icon": "fas fa-server",
+      "value": "1M+",
+      "label": "Daily Requests Served",
+      "color": "#4ECDC4"
+    },
+    {
+      "icon": "fas fa-database",
+      "value": "50M+",
+      "label": "Documents Indexed",
+      "color": "#FFE66D"
+    },
+    {
+      "icon": "fas fa-signal",
+      "value": "99.9%",
+      "label": "Platform Uptime",
+      "color": "#A8DADC"
+    }
+  ],
+  "downloadCV": {
+    "text": "Download Resume",
+    "href": "assets/files/Vishnu-Menon-Resume.pdf",
+    "icon": "fas fa-file-arrow-down"
+  }
+}

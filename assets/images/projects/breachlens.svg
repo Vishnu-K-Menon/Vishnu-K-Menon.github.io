@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="BreachLens illustration: breach files matched into a per-state notification list">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060917"/><stop offset="1" stop-color="#1a1530"/></linearGradient>
+<radialGradient id="glow" cx="0.7" cy="0.42" r="0.6"><stop offset="0" stop-color="#667eea" stop-opacity="0.24"/><stop offset="1" stop-color="#667eea" stop-opacity="0"/></radialGradient>
+<radialGradient id="glow2" cx="0.05" cy="1" r="0.7"><stop offset="0" stop-color="#FF6B6B" stop-opacity="0.15"/><stop offset="1" stop-color="#FF6B6B" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#fff" stroke-opacity="0.045"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#667eea"/></marker>
+</defs>
+<rect width="640" height="360" fill="url(#bg)"/>
+<rect width="640" height="360" fill="url(#grid)"/>
+<rect width="640" height="360" fill="url(#glow)"/>
+<rect width="640" height="360" fill="url(#glow2)"/>
+<g font-family="'Poppins', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+<!-- Input files -->
+<text x="32" y="56" font-size="8" font-weight="800" letter-spacing="1.4" fill="#FF6B6B">BREACHED FILES</text>
+<g>
+<path d="M32 70h52l14 14v50H32z" fill="#FF6B6B" fill-opacity="0.12" stroke="#FF6B6B" stroke-opacity="0.6"/><path d="M84 70v14h14" fill="none" stroke="#FF6B6B" stroke-opacity="0.6"/>
+<text x="65" y="112" font-size="10" font-weight="800" text-anchor="middle" fill="#FF8B94">PDF</text>
+<path d="M32 150h52l14 14v50H32z" fill="#FFE66D" fill-opacity="0.1" stroke="#FFE66D" stroke-opacity="0.55"/><path d="M84 150v14h14" fill="none" stroke="#FFE66D" stroke-opacity="0.55"/>
+<text x="65" y="192" font-size="10" font-weight="800" text-anchor="middle" fill="#FFE66D">SCAN</text>
+<path d="M32 230h52l14 14v50H32z" fill="#38d9a9" fill-opacity="0.1" stroke="#38d9a9" stroke-opacity="0.55"/><path d="M84 230v14h14" fill="none" stroke="#38d9a9" stroke-opacity="0.55"/>
+<text x="65" y="272" font-size="10" font-weight="800" text-anchor="middle" fill="#38d9a9">XLSX</text>
+</g>
+<!-- Pipeline -->
+<path d="M106 102 C140 102 140 182 170 182M106 182H170M106 262 C140 262 140 182 170 182" fill="none" stroke="#667eea" stroke-opacity="0.8" stroke-width="1.6" marker-end="url(#arr)"/>
+<rect x="176" y="70" width="190" height="224" rx="12" fill="#fff" fill-opacity="0.045" stroke="#fff" stroke-opacity="0.12"/>
+<text x="192" y="94" font-size="8" font-weight="800" letter-spacing="1.4" fill="#667eea">EXTRACT · VALIDATE · MATCH</text>
+<g font-size="7.5" fill="#dbe3e7">
+<rect x="192" y="106" width="158" height="26" rx="6" fill="#667eea" fill-opacity="0.12"/>
+<text x="202" y="122" fill-opacity="0.85">J. Rivera · SSN ***-**-4821</text>
+<rect x="192" y="138" width="158" height="26" rx="6" fill="#667eea" fill-opacity="0.12"/>
+<text x="202" y="154" fill-opacity="0.85">Jose Rivera Jr · DOB match</text>
+<rect x="192" y="170" width="158" height="26" rx="6" fill="#667eea" fill-opacity="0.12"/>
+<text x="202" y="186" fill-opacity="0.85">Address verified · Census</text>
+</g>
+<path d="M346 119 c14 0 14 32 0 32 M346 151 c14 0 14 32 0 32" fill="none" stroke="#38d9a9" stroke-width="1.6"/>
+<rect x="192" y="208" width="158" height="30" rx="8" fill="#38d9a9" fill-opacity="0.12" stroke="#38d9a9" stroke-opacity="0.55"/>
+<text x="271" y="227" font-size="8" font-weight="700" text-anchor="middle" fill="#38d9a9">1 person · salted HMAC key</text>
+<text x="192" y="262" font-size="7" fill="#dbe3e7" fill-opacity="0.55">~60 reason codes · raw IDs never written</text>
+<text x="192" y="276" font-size="7" fill="#dbe3e7" fill-opacity="0.55">Python · KNIME · DuckDB · Excel macros</text>
+<!-- Output -->
+<path d="M372 182H400" stroke="#667eea" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="408" y="40" width="200" height="176" rx="12" fill="#fff" fill-opacity="0.045" stroke="#fff" stroke-opacity="0.12"/>
+<text x="424" y="64" font-size="8" font-weight="800" letter-spacing="1.4" fill="#4facfe">NOTIFY BY STATE</text>
+<g font-size="7.5" font-weight="700" fill="#dbe3e7">
+<text x="424" y="88">NY</text><rect x="448" y="80" width="116" height="10" rx="3" fill="#4facfe" fill-opacity="0.85"/><text x="592" y="88" text-anchor="end">38</text>
+<text x="424" y="110">CA</text><rect x="448" y="102" width="92" height="10" rx="3" fill="#4facfe" fill-opacity="0.7"/><text x="592" y="110" text-anchor="end">30</text>
+<text x="424" y="132">TX</text><rect x="448" y="124" width="74" height="10" rx="3" fill="#4facfe" fill-opacity="0.6"/><text x="592" y="132" text-anchor="end">24</text>
+<text x="424" y="154">NJ</text><rect x="448" y="146" width="56" height="10" rx="3" fill="#4facfe" fill-opacity="0.5"/><text x="592" y="154" text-anchor="end">18</text>
+<text x="424" y="176">FL</text><rect x="448" y="168" width="44" height="10" rx="3" fill="#4facfe" fill-opacity="0.4"/><text x="592" y="176" text-anchor="end">14</text>
+</g>
+<text x="424" y="202" font-size="7" fill="#dbe3e7" fill-opacity="0.5">illustrative counts · synthetic data</text>
+<!-- Metric -->
+<rect x="408" y="226" width="200" height="84" rx="12" fill="#667eea" fill-opacity="0.1" stroke="#667eea" stroke-opacity="0.4"/>
+<text x="424" y="248" font-size="8" font-weight="800" letter-spacing="1.4" fill="#667eea">NOTIFICATION LIST vs TRUTH</text>
+<text x="424" y="288" font-size="30" font-weight="800" fill="#4facfe">155/155</text>
+<text x="424" y="302" font-size="7" fill="#dbe3e7" fill-opacity="0.55">matching precision 1.000 · 50K rows in ~39 s</text>
+</g>
+<text x="32" y="336" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="9" font-weight="800" letter-spacing="2" fill="#fff" fill-opacity="0.85">BREACHLENS</text>
+<text x="120" y="336" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="8" fill="#dbe3e7" fill-opacity="0.5">PII/PHI extraction → privacy-safe breach notification list</text>
+</svg>

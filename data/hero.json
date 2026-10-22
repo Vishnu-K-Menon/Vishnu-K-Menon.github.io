@@ -1,0 +1,63 @@
+{
+  "_instructions": "Hero section content.",
+  "greeting": "Hi, I'm",
+  "name": "VISHNU MENON",
+  "title": "AI/ML Engineer · LLM Evaluation & AI Reliability",
+  "summary": "AI/ML Engineer with 4+ years building production machine learning and generative AI systems at C3 AI, Glean and Accenture. I build reliable, evaluation-driven AI: multi-agent workflows, hallucination detection, self-verifying RAG pipelines and model-serving platforms that handle 1M+ daily requests at 99.9% uptime.",
+  "avatarUrl": "/avatar.png",
+  "tagline": "LLMs • RAG • LangGraph • Fine-Tuning • MLOps • AWS",
+  "highlights": [
+    {
+      "icon": "fas fa-briefcase",
+      "text": "4+ Years Experience",
+      "color": "#FF6B6B"
+    },
+    {
+      "icon": "fas fa-bolt",
+      "text": "1M+ Daily Requests Served",
+      "color": "#4ECDC4"
+    },
+    {
+      "icon": "fab fa-aws",
+      "text": "AWS Certified ML Engineer",
+      "color": "#FFE66D"
+    }
+  ],
+  "cta": {
+    "buttons": [
+      {
+        "text": "Get In Touch",
+        "href": "#contact",
+        "type": "primary",
+        "external": false
+      },
+      {
+        "text": "View My Work",
+        "href": "#projects",
+        "type": "secondary",
+        "external": false
+      }
+    ]
+  },
+  "socialLinks": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/Vishnu-K-Menon",
+      "icon": "fab fa-github"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/vkm47",
+      "icon": "fab fa-linkedin"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:vishnumenon@myworkgmail.com",
+      "icon": "fas fa-envelope"
+    }
+  ],
+  "scrollIndicator": {
+    "text": "Scroll to explore",
+    "icon": "fas fa-chevron-down"
+  }
+}

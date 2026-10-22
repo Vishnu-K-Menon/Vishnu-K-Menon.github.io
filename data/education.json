@@ -1,0 +1,60 @@
+{
+  "_instructions": "Add your education and certifications here.",
+  "sectionTitle": "Education",
+  "certificationsTitle": "Certifications",
+  "education": [
+    {
+      "degree": "M.S. in Computer Science and Engineering",
+      "institution": "University at Buffalo, SUNY",
+      "period": "Aug 2024 – Jan 2026",
+      "description": "GPA: 3.53/4.0",
+      "icon": "fas fa-graduation-cap",
+      "color": "#B19CD9"
+    },
+    {
+      "degree": "B.Tech. in Electronics and Communication",
+      "institution": "SCMS School of Engineering and Technology, Ernakulam, Kerala",
+      "period": "Sep 2017 – Jun 2021",
+      "description": "",
+      "icon": "fas fa-microchip",
+      "color": "#4ECDC4"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "AWS Certified Machine Learning Engineer – Associate (MLA-C01)",
+      "issuer": "Amazon Web Services",
+      "date": "",
+      "icon": "fab fa-aws",
+      "color": "#FF9900"
+    },
+    {
+      "title": "AWS Certified AI Practitioner (AIF-C01)",
+      "issuer": "Amazon Web Services",
+      "date": "",
+      "icon": "fab fa-aws",
+      "color": "#FF9900"
+    },
+    {
+      "title": "AWS SimuLearn: AI Practitioner",
+      "issuer": "Amazon Web Services · Training Badge",
+      "date": "",
+      "icon": "fas fa-award",
+      "color": "#FFE66D"
+    },
+    {
+      "title": "Generative AI with LLMs, RAG",
+      "issuer": "DeepLearning.AI",
+      "date": "",
+      "icon": "fas fa-brain",
+      "color": "#FF6B6B"
+    },
+    {
+      "title": "Claude Code 101, Introduction to MCP",
+      "issuer": "Anthropic",
+      "date": "",
+      "icon": "fas fa-robot",
+      "color": "#D97757"
+    }
+  ]
+}
