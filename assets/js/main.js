@@ -436,10 +436,10 @@ function hydrateFooter(data) {
 
     const cells = [
         { label: 'Project', value: tb.project, wide: true },
-        { label: 'Drawn By', value: tb.drawnBy },
-        { label: 'Discipline', value: tb.role },
+        { label: 'Name', value: tb.drawnBy, wide: true },
+        { label: 'Role', value: tb.role },
         { label: 'Location', value: tb.location },
-        { label: 'Email', value: tb.email, href: tb.email ? 'mailto:' + tb.email : '' },
+        { label: 'Email', value: tb.email, href: tb.email ? 'mailto:' + tb.email : '', wide: true },
         { label: 'DWG No.', value: tb.drawingNumber },
         { label: 'Rev', value: tb.revision },
         { label: 'Sheet', value: tb.sheet },

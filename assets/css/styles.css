@@ -1531,6 +1531,10 @@ html.motion-ok .draw.revealed {
 
 .schematic-points li { font-size: 0.88rem; }
 
+/* Footer box holds only name / role / location / email: two columns, so
+   the wide name and email rows never break mid-word */
+.title-block { grid-template-columns: repeat(2, 1fr); }
+
 /* The full name needs the drawing-number slot back before the menu collapses */
 @media (max-width: 1180px) and (min-width: 861px) {
     .brand-dwg { display: none; }
