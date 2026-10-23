@@ -2,7 +2,7 @@
 
 Personal portfolio of Vishnu Krishnakumar Menon, AI/ML Engineer (LLM evaluation, AI reliability, RAG and inference infrastructure).
 
-Live at **https://vishnu-k-menon.github.io**
+Live at **https://vishnukrishnakumarmenon.com**
 
 ## Structure
 
