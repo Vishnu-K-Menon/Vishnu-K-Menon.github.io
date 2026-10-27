@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="AI Career Digital Twin schematic: recruiter chat answered from a grounded persona, with tools that log unknown questions and capture contacts">
+<defs>
+<pattern id="g1" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#EAF3FB" stroke-opacity="0.05"/></pattern>
+<pattern id="g2" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#EAF3FB" stroke-opacity="0.1"/></pattern>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1.5L9 5L0 8.5z" fill="#EAF3FB"/></marker>
+</defs>
+<rect width="640" height="360" fill="#0A2F52"/><rect width="640" height="360" fill="url(#g1)"/><rect width="640" height="360" fill="url(#g2)"/>
+<g font-family="'IBM Plex Mono', Consolas, 'Courier New', monospace" fill="#EAF3FB">
+<text x="24" y="30" font-size="9" letter-spacing="2" fill="#A9C7E0">PN-04 · CAREER DIGITAL TWIN · AGENT</text>
+<path d="M24 40H616" stroke="#EAF3FB" stroke-opacity="0.38"/>
+<!-- visitor chat -->
+<text x="24" y="66" font-size="8" letter-spacing="1.5" fill="#A9C7E0">01 RECRUITER CHAT</text>
+<rect x="24" y="76" width="190" height="200" fill="none" stroke="#EAF3FB" stroke-opacity="0.82"/>
+<g font-size="8">
+<path d="M202 90H70V118H194l8 6z" fill="#9FDBFF" fill-opacity="0.08" stroke="#9FDBFF" stroke-opacity="0.7"/>
+<text x="78" y="102">What did you build</text><text x="78" y="113">at C3 AI?</text>
+<path d="M36 132H176V172H44l-8 6z" fill="#EAF3FB" fill-opacity="0.06" stroke="#EAF3FB" stroke-opacity="0.6"/>
+<text x="44" y="144">A multi-tenant LLM</text><text x="44" y="155">+ RAG platform at</text><text x="44" y="166">1M+ requests/day.</text>
+<path d="M202 186H70V214H194l8 6z" fill="#9FDBFF" fill-opacity="0.08" stroke="#9FDBFF" stroke-opacity="0.7"/>
+<text x="78" y="198">Can we set up a</text><text x="78" y="209">call next week?</text>
+<rect x="36" y="232" width="166" height="30" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" stroke-dasharray="4 3"/>
+<text x="46" y="251" font-size="7.5" fill="#A9C7E0">Gradio UI · Hugging Face</text>
+</g>
+<path d="M218 176H250" stroke="#EAF3FB" stroke-width="1.2" marker-end="url(#ar)"/>
+<!-- agent loop -->
+<text x="258" y="66" font-size="8" letter-spacing="1.5" fill="#A9C7E0">02 AGENT LOOP</text>
+<rect x="258" y="76" width="160" height="200" fill="none" stroke="#EAF3FB" stroke-opacity="0.82"/>
+<g font-size="8">
+<rect x="272" y="90" width="132" height="34" fill="#EAF3FB" fill-opacity="0.05" stroke="#EAF3FB" stroke-opacity="0.45"/>
+<text x="282" y="104">PERSONA PROMPT</text><text x="282" y="116" font-size="7" fill="#A9C7E0">summary.txt + LinkedIn</text>
+<path d="M338 124V138" stroke="#EAF3FB" stroke-opacity="0.82" marker-end="url(#ar)"/>
+<circle cx="338" cy="168" r="26" fill="none" stroke="#9FDBFF" stroke-opacity="0.9"/>
+<text x="338" y="166" font-size="8" text-anchor="middle">LLM</text><text x="338" y="177" font-size="6.5" text-anchor="middle" fill="#A9C7E0">tool calls</text>
+<path d="M366 160a32 32 0 0 1 0 18" fill="none" stroke="#EAF3FB" stroke-opacity="0.6" marker-end="url(#ar)"/>
+<text x="388" y="171" font-size="6.5" fill="#A9C7E0">loop</text>
+<path d="M338 194V210" stroke="#EAF3FB" stroke-opacity="0.82" marker-end="url(#ar)"/>
+<rect x="272" y="216" width="132" height="44" fill="none" stroke="#EAF3FB" stroke-opacity="0.82"/>
+<text x="282" y="231" font-size="7.5">record_unknown_</text><text x="282" y="241" font-size="7.5">question()</text><text x="282" y="253" font-size="7.5" fill="#9FDBFF">record_user_details()</text>
+</g>
+<path d="M422 238H452" stroke="#EAF3FB" stroke-width="1.2" marker-end="url(#ar)"/>
+<!-- notifications -->
+<text x="460" y="66" font-size="8" letter-spacing="1.5" fill="#A9C7E0">03 PUSH TO PHONE</text>
+<rect x="500" y="76" width="76" height="140" rx="10" fill="none" stroke="#EAF3FB" stroke-opacity="0.82"/>
+<path d="M526 84H550" stroke="#EAF3FB" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round"/>
+<g font-size="6.5">
+<rect x="508" y="96" width="60" height="30" fill="#9FDBFF" fill-opacity="0.12" stroke="#9FDBFF" stroke-opacity="0.8"/>
+<text x="513" y="108" fill="#9FDBFF">NEW CONTACT</text><text x="513" y="119">recruiter@…</text>
+<rect x="508" y="134" width="60" height="30" fill="#EAF3FB" fill-opacity="0.05" stroke="#EAF3FB" stroke-opacity="0.5"/>
+<text x="513" y="146" fill="#A9C7E0">UNKNOWN Q</text><text x="513" y="157">visa status?</text>
+</g>
+<text x="460" y="236" font-size="7.5" fill="#A9C7E0">Pushover API</text>
+<text x="460" y="250" font-size="7" fill="#A9C7E0">unknowns → next</text>
+<text x="460" y="262" font-size="7" fill="#A9C7E0">summary revision</text>
+<!-- rule -->
+<text x="24" y="304" font-size="8" letter-spacing="1.5" fill="#A9C7E0">RULE · ANSWER FROM CONTEXT OR LOG IT — NEVER GUESS</text>
+<path d="M24 324H616" stroke="#EAF3FB" stroke-opacity="0.38"/>
+<text x="24" y="342" font-size="8" letter-spacing="2" fill="#A9C7E0">OPENAI FUNCTION CALLING · GRADIO · PYPDF · PUSHOVER</text>
+<text x="616" y="342" font-size="8" letter-spacing="2" text-anchor="end" fill="#A9C7E0">SCALE 1:1</text>
+</g>
+</svg>

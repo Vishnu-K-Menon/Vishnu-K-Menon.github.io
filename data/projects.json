@@ -84,6 +84,37 @@
           "url": "https://github.com/Vishnu-K-Menon/BreachLens"
         }
       ]
+    },
+    {
+      "part": "PN-04",
+      "name": "AI Career Digital Twin",
+      "category": "AI Agent",
+      "image": "assets/images/projects/career-digital-twin.svg",
+      "description": "An AI agent that represents me to recruiters, hiring managers and collaborators. It answers questions about my background, projects and skills in my own voice, grounded in my professional summary and LinkedIn profile, and stays on career topics.",
+      "highlights": [
+        "OpenAI function-calling loop: the agent keeps calling tools until it has a final answer, instead of improvising",
+        "Logs every question it can't answer and captures contact details from visitors who want to follow up, with real-time Pushover notifications to my phone",
+        "Custom Gradio 6 interface with light and dark themes, deployed on Hugging Face Spaces"
+      ],
+      "technologies": [
+        "Python",
+        "OpenAI API",
+        "Function Calling",
+        "Gradio",
+        "pypdf",
+        "Pushover",
+        "Hugging Face Spaces"
+      ],
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://vkm47-twin.hf.space"
+        },
+        {
+          "label": "Source",
+          "url": "https://github.com/Vishnu-K-Menon/AI-Career-Digital-Twin"
+        }
+      ]
     }
   ]
 }
