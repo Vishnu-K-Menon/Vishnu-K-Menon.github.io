@@ -20,30 +20,24 @@
     },
     {
       "rev": "C",
-      "description": "AWS Certified Machine Learning Engineer – Associate (MLA-C01)",
-      "org": "Amazon Web Services",
-      "note": "Certification"
-    },
-    {
-      "rev": "D",
       "description": "AWS Certified AI Practitioner (AIF-C01)",
       "org": "Amazon Web Services",
       "note": "Certification"
     },
     {
-      "rev": "E",
+      "rev": "D",
       "description": "AWS SimuLearn: AI Practitioner",
       "org": "Amazon Web Services",
       "note": "Training Badge"
     },
     {
-      "rev": "F",
+      "rev": "E",
       "description": "Generative AI with LLMs, RAG",
       "org": "DeepLearning.AI",
       "note": "Course"
     },
     {
-      "rev": "G",
+      "rev": "F",
       "description": "Claude Code 101, Introduction to MCP",
       "org": "Anthropic",
       "note": "Course"
