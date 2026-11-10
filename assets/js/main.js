@@ -514,4 +514,5 @@ function initReveal() {
     );
 
     targets.forEach((el) => observer.observe(el));
+}
 
